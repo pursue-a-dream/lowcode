@@ -1,0 +1,13 @@
+{
+  "type": "commonTem",
+  "name": "user",
+  "category": "container",
+  "widgetList": {},
+  "options": {
+    "name": "commonTem71212",
+    "label": "commontem"
+  },
+  "layers": [],
+  "imgUrl": "searchFormTable.png",
+  "id": "commonTem71212"
+}

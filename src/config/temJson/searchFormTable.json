@@ -1,0 +1,1454 @@
+{
+  "type": "commonTem",
+  "name": "searchFormTable",
+  "category": "container",
+  "widgetList": [
+    {
+      "type": "form",
+      "name": "form表单容器",
+      "hasStyleConfig": true,
+      "activeStyle": {
+        "marginTop": "0px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginBottom": "0px",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingBottom": "0px",
+        "width": "",
+        "height": "",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "15px"
+      },
+      "category": "container",
+      "icon": "form",
+      "cols": [],
+      "widgetProvideData": {
+        "formData": {
+          "value": "formData",
+          "label": "表单数据",
+          "data": {
+            "cascadePlatformName": "",
+            "createTime": ""
+          }
+        }
+      },
+      "widgetList": [
+        {
+          "type": "input",
+          "name": "input组件",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "formItemFlag": true,
+          "widgetList": [],
+          "defaultValue": "",
+          "value": "",
+          "options": {
+            "label": "平台名",
+            "fieldName": "cascadePlatformName",
+            "type": "text",
+            "isRequired": false,
+            "maxlength": 200,
+            "minlength": 0,
+            "placeholder": "请输入",
+            "disabled": false,
+            "size": "",
+            "prefixIcon": "",
+            "suffixIcon": "",
+            "rows": 2,
+            "autosize": false,
+            "readonly": false,
+            "clearable": true,
+            "tips": "",
+            "tipsPlacement": "top",
+            "customClass": ""
+          },
+          "actions": [],
+          "eventArr": [],
+          "id": "input83592",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "type": "input",
+          "name": "input组件",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "formItemFlag": true,
+          "widgetList": [],
+          "defaultValue": "",
+          "value": "",
+          "options": {
+            "label": "添加时间",
+            "fieldName": "createTime",
+            "type": "text",
+            "isRequired": false,
+            "maxlength": 200,
+            "minlength": 0,
+            "placeholder": "请输入",
+            "disabled": false,
+            "size": "",
+            "prefixIcon": "",
+            "suffixIcon": "",
+            "rows": 2,
+            "autosize": false,
+            "readonly": false,
+            "clearable": true,
+            "tips": "",
+            "tipsPlacement": "top",
+            "customClass": ""
+          },
+          "actions": [],
+          "eventArr": [],
+          "id": "input24451",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "type": "operate",
+          "name": "操作区容器",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "category": "container",
+          "widgetList": [
+            {
+              "type": "button",
+              "name": "button组件",
+              "widgetList": [],
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "options": {
+                "label": "查询",
+                "size": null,
+                "displayStyle": "inline-block",
+                "icon": "",
+                "type": "primary",
+                "plain": false,
+                "radius": false,
+                "loading": false
+              },
+              "actions": [
+                {
+                  "label": "单次点击",
+                  "value": "click"
+                }
+              ],
+              "eventArr": [
+                {
+                  "effectAciton": "click",
+                  "toduAcitonArr": [
+                    {
+                      "value": [
+                        "table",
+                        "tableReload"
+                      ],
+                      "key": 1662360129846,
+                      "router": "",
+                      "reqMethod": "post",
+                      "reqUrl": "",
+                      "paramsList": []
+                    }
+                  ],
+                  "eventId": "51530"
+                }
+              ],
+              "id": "button44966",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            },
+            {
+              "type": "button",
+              "name": "button组件",
+              "widgetList": [],
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "options": {
+                "label": "重置",
+                "size": null,
+                "displayStyle": "inline-block",
+                "icon": "",
+                "type": "",
+                "plain": false,
+                "radius": false,
+                "loading": false
+              },
+              "actions": [
+                {
+                  "label": "单次点击",
+                  "value": "click"
+                }
+              ],
+              "eventArr": [
+                {
+                  "effectAciton": "click",
+                  "toduAcitonArr": [
+                    {
+                      "value": [
+                        "searchForm",
+                        "formReset"
+                      ],
+                      "key": 1662375284119,
+                      "router": "",
+                      "reqMethod": "post",
+                      "reqUrl": "",
+                      "paramsList": []
+                    },
+                    {
+                      "value": [
+                        "table",
+                        "tableReload"
+                      ],
+                      "key": 1662426816326
+                    }
+                  ],
+                  "eventId": "05760"
+                }
+              ],
+              "id": "button41203",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            }
+          ],
+          "options": {
+            "name": "operate"
+          },
+          "id": "operate75279",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        }
+      ],
+      "options": {
+        "name": "searchForm",
+        "inline": true,
+        "childWidthPercent": "25%",
+        "labelPosition": "top",
+        "labelWidth": "90px",
+        "customClass": ""
+      },
+      "triggerEvent": [
+        {
+          "label": "表单提交",
+          "value": "formSubmit",
+          "reqMethod": "post",
+          "reqUrl": ""
+        },
+        {
+          "label": "表单重置",
+          "value": "formReset"
+        }
+      ],
+      "id": "form27683",
+      "styleConfig": {
+        "margin": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "padding": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "font": {
+          "size": 14,
+          "weight": 400
+        },
+        "color": "",
+        "lineHeight": 15,
+        "width": "",
+        "height": ""
+      }
+    },
+    {
+      "type": "operate",
+      "name": "操作区容器",
+      "hasStyleConfig": true,
+      "activeStyle": {
+        "marginTop": "0px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginBottom": "0px",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingBottom": "0px",
+        "width": "",
+        "height": "",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "15px"
+      },
+      "category": "container",
+      "widgetList": [
+        {
+          "type": "button",
+          "name": "button组件",
+          "widgetList": [],
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "options": {
+            "label": "添加",
+            "size": null,
+            "displayStyle": "inline-block",
+            "icon": "h-icon-add",
+            "type": "",
+            "plain": false,
+            "radius": false,
+            "loading": false
+          },
+          "actions": [
+            {
+              "label": "单次点击",
+              "value": "click"
+            }
+          ],
+          "eventArr": [
+            {
+              "effectAciton": "click",
+              "toduAcitonArr": [
+                {
+                  "value": [
+                    "globalAction",
+                    "drawer"
+                  ],
+                  "key": 1662359586145,
+                  "router": "",
+                  "reqMethod": "post",
+                  "reqUrl": "",
+                  "paramsList": []
+                }
+              ],
+              "eventId": "48934"
+            }
+          ],
+          "id": "button65255",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "type": "button",
+          "name": "button组件",
+          "widgetList": [],
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "options": {
+            "label": "删除",
+            "size": null,
+            "displayStyle": "inline-block",
+            "icon": "h-icon-delete",
+            "type": "",
+            "plain": false,
+            "radius": false,
+            "loading": false
+          },
+          "actions": [
+            {
+              "label": "单次点击",
+              "value": "click"
+            }
+          ],
+          "eventArr": [
+            {
+              "effectAciton": "click",
+              "toduAcitonArr": [
+                {
+                  "value": [
+                    "table",
+                    "tableDelete"
+                  ],
+                  "key": 1662360108646,
+                  "router": "",
+                  "reqMethod": "post",
+                  "reqUrl": "",
+                  "paramsList": []
+                }
+              ],
+              "eventId": "76564"
+            }
+          ],
+          "id": "button82489",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        }
+      ],
+      "options": {
+        "name": "todu"
+      },
+      "id": "operate67027",
+      "styleConfig": {
+        "margin": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "padding": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "font": {
+          "size": 14,
+          "weight": 400
+        },
+        "color": "",
+        "lineHeight": 15,
+        "width": "",
+        "height": ""
+      }
+    },
+    {
+      "type": "table",
+      "name": "table容器",
+      "hasStyleConfig": true,
+      "activeStyle": {
+        "marginTop": "0px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginBottom": "0px",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingBottom": "0px",
+        "width": "",
+        "height": "",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "15px"
+      },
+      "category": "container",
+      "widgetProvideData": {
+        "checkedRowKeys": {
+          "value": "checkedRowKeys",
+          "label": "选中节点数组",
+          "data": []
+        }
+      },
+      "widgetList": [
+        {
+          "type": "table-column",
+          "name": "table-column容器",
+          "notInWidgetPanel": true,
+          "category": "container",
+          "widgetList": [],
+          "options": {
+            "name": "table-column",
+            "label": "日期",
+            "prop": "date",
+            "width": ""
+          },
+          "id": "table-column43242"
+        },
+        {
+          "type": "table-column",
+          "name": "table-column容器",
+          "notInWidgetPanel": true,
+          "category": "container",
+          "widgetList": [],
+          "options": {
+            "name": "table-column",
+            "label": "品牌",
+            "prop": "name",
+            "width": ""
+          },
+          "id": "table-column12911"
+        },
+        {
+          "type": "table-column",
+          "name": "table-column容器",
+          "notInWidgetPanel": true,
+          "category": "container",
+          "widgetList": [],
+          "options": {
+            "name": "table-column",
+            "label": "地址",
+            "prop": "address",
+            "width": ""
+          },
+          "id": "table-column32416"
+        },
+        {
+          "type": "table-column",
+          "name": "table-column容器",
+          "notInWidgetPanel": true,
+          "category": "container",
+          "widgetList": [
+            {
+              "type": "button",
+              "name": "button组件",
+              "widgetList": [],
+              "id": "button17089",
+              "options": {
+                "name": "button",
+                "label": "删除",
+                "size": null,
+                "displayStyle": "inline-block",
+                "type": "link",
+                "plain": false,
+                "radius": false,
+                "loading": false
+              },
+              "actions": [
+                {
+                  "label": "单次点击",
+                  "value": "click"
+                }
+              ],
+              "eventArr": [
+                {
+                  "effectAciton": "click",
+                  "toduAcitonArr": [
+                    {
+                      "value": [
+                        "table",
+                        "tableDelete"
+                      ],
+                      "key": 1662360159260,
+                      "router": "",
+                      "reqMethod": "post",
+                      "reqUrl": "",
+                      "paramsList": []
+                    }
+                  ],
+                  "eventId": "70825"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "name": "button组件",
+              "widgetList": [],
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "options": {
+                "label": "修改",
+                "size": null,
+                "displayStyle": "inline-block",
+                "icon": "",
+                "type": "link",
+                "plain": false,
+                "radius": false,
+                "loading": false
+              },
+              "actions": [
+                {
+                  "label": "单次点击",
+                  "value": "click"
+                }
+              ],
+              "eventArr": [
+                {
+                  "effectAciton": "click",
+                  "toduAcitonArr": [
+                    {
+                      "value": [
+                        "globalAction",
+                        "request"
+                      ],
+                      "key": 1662360181196,
+                      "router": "",
+                      "reqMethod": "post",
+                      "reqUrl": "symbols/update",
+                      "paramsList": []
+                    }
+                  ],
+                  "eventId": "24600"
+                }
+              ],
+              "id": "button97705",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            }
+          ],
+          "options": {
+            "name": "table-column",
+            "label": "操作",
+            "prop": "",
+            "width": ""
+          },
+          "id": "table-column93542"
+        }
+      ],
+      "options": {
+        "name": "table",
+        "dataSource": [
+          {
+            "id": "28812",
+            "date": "2018/01/02",
+            "name": "海康威视海康威视海康威视",
+            "address": "杭州市滨江区阡陌路555号"
+          }
+        ],
+        "tableLineKey": "id"
+      },
+      "triggerEvent": [
+        {
+          "label": "表格请求",
+          "value": "tableReload",
+          "reqMethod": "post",
+          "reqUrl": "cascadePlatform/query",
+          "paramsList": [
+            [
+              "searchForm",
+              "formData"
+            ]
+          ]
+        },
+        {
+          "label": "删除表格数据",
+          "value": "tableDelete",
+          "reqMethod": "post",
+          "reqUrl": "cascadePlatform/deleteBatch"
+        },
+        {
+          "label": "编辑表格数据",
+          "value": "tableEdit"
+        }
+      ],
+      "id": "table63487",
+      "styleConfig": {
+        "margin": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "padding": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "font": {
+          "size": 14,
+          "weight": 400
+        },
+        "color": "",
+        "lineHeight": 15,
+        "width": "",
+        "height": ""
+      }
+    }
+  ],
+  "options": {
+    "name": "commonTem76452",
+    "label": "commontem"
+  },
+  "imgUrl": "searchFormTable.png",
+  "id": "commonTem76452",
+  "layers": [
+    {
+      "type": "drawer",
+      "formItemFlag": true,
+      "name": "drawer组件",
+      "id": "drawer48934",
+      "widgetList": [
+        {
+          "type": "form",
+          "name": "form表单容器",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "category": "container",
+          "icon": "form",
+          "cols": [],
+          "widgetProvideData": {
+            "formData": {
+              "value": "formData",
+              "label": "表单数据",
+              "data": {
+                "cascadePlatformName": "",
+                "ip": "",
+                "port": "",
+                "type": "",
+                "protocolType": ""
+              }
+            }
+          },
+          "widgetList": [
+            {
+              "type": "input",
+              "name": "input组件",
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "formItemFlag": true,
+              "widgetList": [],
+              "defaultValue": "",
+              "value": "",
+              "options": {
+                "label": "平台名",
+                "fieldName": "cascadePlatformName",
+                "type": "text",
+                "isRequired": true,
+                "maxlength": 200,
+                "minlength": 0,
+                "placeholder": "请输入",
+                "disabled": false,
+                "size": "",
+                "prefixIcon": "",
+                "suffixIcon": "",
+                "rows": 2,
+                "autosize": false,
+                "readonly": false,
+                "clearable": true,
+                "tips": "",
+                "tipsPlacement": "top",
+                "customClass": ""
+              },
+              "actions": [],
+              "eventArr": [],
+              "id": "input50922",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            },
+            {
+              "type": "input",
+              "name": "input组件",
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "formItemFlag": true,
+              "widgetList": [],
+              "defaultValue": "",
+              "value": "",
+              "options": {
+                "label": "平台IP",
+                "fieldName": "ip",
+                "type": "text",
+                "isRequired": true,
+                "maxlength": 200,
+                "minlength": 0,
+                "placeholder": "请输入",
+                "disabled": false,
+                "size": "",
+                "prefixIcon": "",
+                "suffixIcon": "",
+                "rows": 2,
+                "autosize": false,
+                "readonly": false,
+                "clearable": true,
+                "tips": "",
+                "tipsPlacement": "top",
+                "customClass": ""
+              },
+              "actions": [],
+              "eventArr": [],
+              "id": "input49548",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            },
+            {
+              "type": "input",
+              "name": "input组件",
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "formItemFlag": true,
+              "widgetList": [],
+              "defaultValue": "",
+              "value": "",
+              "options": {
+                "label": "端口",
+                "fieldName": "port",
+                "type": "text",
+                "isRequired": true,
+                "maxlength": 200,
+                "minlength": 0,
+                "placeholder": "请输入",
+                "disabled": false,
+                "size": "",
+                "prefixIcon": "",
+                "suffixIcon": "",
+                "rows": 2,
+                "autosize": false,
+                "readonly": false,
+                "clearable": true,
+                "tips": "",
+                "tipsPlacement": "top",
+                "customClass": ""
+              },
+              "actions": [],
+              "eventArr": [],
+              "id": "input29249",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            },
+            {
+              "type": "select",
+              "name": "select组件",
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "formItemFlag": true,
+              "widgetList": [],
+              "defaultValue": "",
+              "value": "",
+              "options": {
+                "label": "关联关系",
+                "fieldName": "type",
+                "isRequired": true,
+                "multiple": false,
+                "disabled": false,
+                "readonly": false,
+                "valueKey": "",
+                "size": "",
+                "clear": false,
+                "multipleClearable": false,
+                "collapseTags": false,
+                "multipleLimit": 0,
+                "multipleNowrap": false,
+                "maxlength": 200,
+                "placeholder": "请选择",
+                "filterable": false,
+                "selectOptions": [
+                  {
+                    "val": 1,
+                    "label": "级联"
+                  },
+                  {
+                    "val": 2,
+                    "label": "互联"
+                  }
+                ]
+              },
+              "actions": [],
+              "eventArr": [],
+              "id": "select58959",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            },
+            {
+              "type": "select",
+              "name": "select组件",
+              "hasStyleConfig": true,
+              "activeStyle": {
+                "marginTop": "0px",
+                "marginLeft": "0px",
+                "marginRight": "0px",
+                "marginBottom": "0px",
+                "paddingTop": "0px",
+                "paddingLeft": "0px",
+                "paddingRight": "0px",
+                "paddingBottom": "0px",
+                "width": "",
+                "height": "",
+                "fontSize": "14px",
+                "fontWeight": 400,
+                "lineHeight": "15px"
+              },
+              "formItemFlag": true,
+              "widgetList": [],
+              "defaultValue": "",
+              "value": "",
+              "options": {
+                "label": "协议类型",
+                "fieldName": "protocolType",
+                "isRequired": true,
+                "multiple": false,
+                "disabled": false,
+                "readonly": false,
+                "valueKey": "",
+                "size": "",
+                "clear": false,
+                "multipleClearable": false,
+                "collapseTags": false,
+                "multipleLimit": 0,
+                "multipleNowrap": false,
+                "maxlength": 200,
+                "placeholder": "请选择",
+                "filterable": false,
+                "selectOptions": [
+                  {
+                    "val": 1,
+                    "label": "HTTP"
+                  },
+                  {
+                    "val": 2,
+                    "label": "HTTPS"
+                  },
+                  {
+                    "val": 3,
+                    "label": "国密HTTPS"
+                  }
+                ]
+              },
+              "actions": [],
+              "eventArr": [],
+              "id": "select35156",
+              "styleConfig": {
+                "margin": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "left": 0,
+                  "right": 0,
+                  "bottom": 0
+                },
+                "font": {
+                  "size": 14,
+                  "weight": 400
+                },
+                "color": "",
+                "lineHeight": 15,
+                "width": "",
+                "height": ""
+              }
+            }
+          ],
+          "options": {
+            "name": "addForm",
+            "inline": false,
+            "childWidthPercent": "25%",
+            "labelPosition": "top",
+            "labelWidth": "90px",
+            "customClass": ""
+          },
+          "triggerEvent": [
+            {
+              "label": "表单提交",
+              "value": "formSubmit",
+              "reqMethod": "post",
+              "reqUrl": "cascadePlatform/add"
+            },
+            {
+              "label": "表单重置",
+              "value": "formReset"
+            }
+          ],
+          "id": "form45038",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        }
+      ],
+      "options": {
+        "name": "addDrawer",
+        "visible": false,
+        "title": "添加",
+        "modal": false,
+        "modalAppendToBody": false,
+        "appendToBody": false,
+        "showClose": true,
+        "customClass": "",
+        "wrapperClosable": false,
+        "addBtnName": "确 定",
+        "cancelBtnName": "取 消",
+        "hasAddBtnName": true,
+        "hasCancelBtnName": true,
+        "hasFooter": true
+      },
+      "actions": [
+        {
+          "label": "点击确定回调",
+          "value": "drawerConfirmClick"
+        },
+        {
+          "label": "关闭回调",
+          "value": "drawerCancelClick"
+        }
+      ],
+      "triggerEvent": [
+        {
+          "label": "关闭drawer",
+          "value": "drawerClose"
+        }
+      ],
+      "eventArr": [
+        {
+          "effectAciton": "drawerCancelClick",
+          "toduAcitonArr": [
+            {
+              "value": [
+                "addForm",
+                "formReset"
+              ],
+              "key": 1662360096966,
+              "router": "",
+              "reqMethod": "post",
+              "reqUrl": "",
+              "paramsList": []
+            }
+          ],
+          "eventId": "50345"
+        },
+        {
+          "effectAciton": "drawerConfirmClick",
+          "toduAcitonArr": [
+            {
+              "value": [
+                "addForm",
+                "formSubmit"
+              ],
+              "key": 1662360242493,
+              "router": "",
+              "reqMethod": "post",
+              "reqUrl": "",
+              "paramsList": []
+            },
+            {
+              "value": [
+                "addDrawer",
+                "drawerClose"
+              ],
+              "key": 1662360618388
+            },
+            {
+              "value": [
+                "addForm",
+                "formReset"
+              ],
+              "key": 1662360621564
+            }
+          ],
+          "eventId": "32276"
+        }
+      ]
+    }
+  ]
+}

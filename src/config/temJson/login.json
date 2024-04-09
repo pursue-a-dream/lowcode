@@ -1,0 +1,339 @@
+{
+  "type": "login",
+  "name": "登录页",
+  "category": "container",
+  "widgetList": [
+    {
+      "type": "form",
+      "name": "form表单容器",
+      "hasStyleConfig": true,
+      "activeStyle": {
+        "marginTop": "0px",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginBottom": "0px",
+        "paddingTop": "0px",
+        "paddingLeft": "0px",
+        "paddingRight": "0px",
+        "paddingBottom": "0px",
+        "width": "",
+        "height": "260px",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "15px"
+      },
+      "category": "container",
+      "icon": "form",
+      "cols": [],
+      "widgetProvideData": {
+        "formData": {
+          "value": "formData",
+          "label": "表单数据",
+          "data": {
+            "input84976": "",
+            "input69586": ""
+          }
+        }
+      },
+      "widgetList": [
+        {
+          "type": "h1",
+          "name": "一级标题",
+          "widgetList": [],
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0.67empx",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0.67empx",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "2empx",
+            "fontWeight": 800,
+            "lineHeight": "15px"
+          },
+          "styleConfig": {
+            "margin": {
+              "top": "0.67em",
+              "left": 0,
+              "right": 0,
+              "bottom": "0.67em"
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": "2em",
+              "weight": 800
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          },
+          "options": {
+            "name": "h139973",
+            "label": "h1",
+            "title": "欢迎登录"
+          },
+          "id": "h139973"
+        },
+        {
+          "type": "input",
+          "name": "input组件",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "25px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "formItemFlag": true,
+          "widgetList": [],
+          "defaultValue": "",
+          "value": "",
+          "options": {
+            "name": "input84976",
+            "label": "",
+            "fieldName": "input84976",
+            "type": "text",
+            "maxlength": 200,
+            "minlength": 0,
+            "placeholder": "请输入用户名",
+            "disabled": false,
+            "size": "large",
+            "prefixIcon": "h-icon-user",
+            "suffixIcon": "",
+            "rows": 2,
+            "autosize": false,
+            "readonly": false,
+            "clearable": true,
+            "tips": "",
+            "tipsPlacement": "top",
+            "customClass": ""
+          },
+          "actions": [],
+          "eventArr": [],
+          "id": "input84976",
+          "styleConfig": {
+            "margin": {
+              "top": "25",
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "type": "input",
+          "name": "input组件",
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "25px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "formItemFlag": true,
+          "widgetList": [],
+          "defaultValue": "",
+          "value": "",
+          "options": {
+            "name": "input69586",
+            "label": "",
+            "fieldName": "input69586",
+            "type": "text",
+            "maxlength": 200,
+            "minlength": 0,
+            "placeholder": "请输入密码",
+            "disabled": false,
+            "size": "large",
+            "prefixIcon": "h-icon-lock",
+            "suffixIcon": "",
+            "rows": 2,
+            "autosize": false,
+            "readonly": false,
+            "clearable": true,
+            "tips": "",
+            "tipsPlacement": "top",
+            "customClass": ""
+          },
+          "actions": [],
+          "eventArr": [],
+          "id": "input69586",
+          "styleConfig": {
+            "margin": {
+              "top": "25",
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "",
+            "height": ""
+          }
+        },
+        {
+          "type": "button",
+          "name": "button组件",
+          "widgetList": [],
+          "hasStyleConfig": true,
+          "activeStyle": {
+            "marginTop": "0px",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "marginBottom": "0px",
+            "paddingTop": "0px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "width": "300px",
+            "height": "",
+            "fontSize": "14px",
+            "fontWeight": 400,
+            "lineHeight": "15px"
+          },
+          "options": {
+            "name": "button104274",
+            "label": "登录",
+            "size": "large",
+            "displayStyle": "inline-block",
+            "type": "primary",
+            "plain": false,
+            "radius": true,
+            "loading": false
+          },
+          "actions": [
+            {
+              "label": "单次点击",
+              "value": "click"
+            }
+          ],
+          "eventArr": [],
+          "id": "button104274",
+          "styleConfig": {
+            "margin": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "padding": {
+              "top": 0,
+              "left": 0,
+              "right": 0,
+              "bottom": 0
+            },
+            "font": {
+              "size": 14,
+              "weight": 400
+            },
+            "color": "",
+            "lineHeight": 15,
+            "width": "300",
+            "height": ""
+          }
+        }
+      ],
+      "options": {
+        "name": "form79520",
+        "label": "form",
+        "inline": false,
+        "childWidthPercent": "25%",
+        "labelPosition": "top",
+        "labelWidth": "90px",
+        "customClass": ""
+      },
+      "triggerEvent": [
+        {
+          "label": "表单提交",
+          "value": "formSubmit"
+        },
+        {
+          "label": "表单重置",
+          "value": "formReset"
+        }
+      ],
+      "id": "form79520",
+      "styleConfig": {
+        "margin": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "padding": {
+          "top": 0,
+          "left": 0,
+          "right": 0,
+          "bottom": 0
+        },
+        "font": {
+          "size": 14,
+          "weight": 400
+        },
+        "color": "",
+        "lineHeight": 15,
+        "width": "",
+        "height": "260"
+      }
+    }
+  ],
+  "options": {
+    "name": "login17164",
+    "label": "login",
+    "title": "通用安全管理平台"
+  },
+  "imgUrl": "loginPage.png",
+  "id": "login17164"
+}

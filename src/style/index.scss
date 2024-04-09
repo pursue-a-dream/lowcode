@@ -1,0 +1,33 @@
+@import './normalize.scss';
+@import './global.scss';
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0; /*  */
+  background-color: #ffffff;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* 全局css变量 */
+$--color-primary: #409eff;
+.el-tabs__content {
+  padding: 0 !important;
+}
+.el-collapse-item__wrap {
+  background-color: #ffffff !important;
+}
+.el-collapse-item__content {
+  padding: 0 !important;
+}
+.container-widget-item {
+  margin: 6px !important;
+  padding-left: 6px;
+}
