@@ -29,6 +29,10 @@ import { transStrFnToFn, transObjToStr } from '@/utils/util.js'
 export default {
   props: {
     designer: { type: Object, default: () => {} },
+    updateTagList: {
+      type: Function,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -105,6 +109,7 @@ export default {
       this.getTem(this.$route.query.editID).then(res => {
         if (res.code === 1) {
           this.tagList = res.data
+          this.$emit('updateTagList', res.data)
           if (!this.activeTag && res.data[0]) {
             const {
               temName,

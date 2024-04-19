@@ -15,7 +15,7 @@
     <div class="right-toolbar">
       <div class="right-toolbar-con">
         <el-button type="link" icon="h-icon-delete" @click="clearFormWidget"> 清空</el-button>
-        <el-button type="link" icon="h-icon-download" @click="saveFile">下载</el-button>
+        <!-- <el-button type="link" icon="h-icon-download" @click="saveFile">下载</el-button> -->
         <el-button
           v-if="this.$route.query.editID"
           type="link"
@@ -96,3 +96,4 @@ export default {
   }
 }
 </style>
+

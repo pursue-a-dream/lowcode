@@ -7,4 +7,13 @@ export default {
   addProject(_, data) {
     return HTTP.post(`${BASE_URL}/project`, data)
   },
+  delProject(_, data) {
+    return HTTP.post(`${BASE_URL}/project/delete`, data)
+  },
+  getProjectInfoByID(_, id) {
+    return HTTP.get(`${BASE_URL}/project/${id}`)
+  },
+  editProjectByID(_, data) {
+    return HTTP.post(`${BASE_URL}/project/update`, data)
+  },
 }

@@ -85,13 +85,13 @@ export default {
     // 此处监听，处理form的被触发事件
     'designer.triggerEventStatus': {
       handler(newV, oldV) {
-        let drawerClose = this.widget.options.name + 'drawerClose'
+        let drawerClose = this.widget.id + 'drawerClose'
         if (newV[drawerClose] != oldV[drawerClose]) {
           this.widget.options.visible = false
-          this.$message({
-            message: 'drawerClose',
-            type: 'success',
-          })
+          // this.$message({
+          //   message: 'drawerClose',
+          //   type: 'success',
+          // })
         }
       },
       deep: true,

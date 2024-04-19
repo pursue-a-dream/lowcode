@@ -11,7 +11,13 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
     :form-data="formData"
-    :rules="[]"
+    :rules="[
+      {
+        required: widget.options.isRequired,
+        message: '请选择',
+        trigger: 'change',
+      },
+    ]"
   >
     <el-checkbox-group v-model="checkboxVal">
       <template v-if="widget.options.showType === 'checkbox'">

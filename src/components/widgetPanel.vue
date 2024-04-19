@@ -69,10 +69,10 @@
             :body-style="{ padding: '0px' }"
             style="cursor: pointer"
           >
-            <el-popover placement="right" trigger="hover" width="600">
-              <img :src="`/api/static/${tem.fileName}`" style="width: 100%" />
+            <el-popover placement="right" trigger="hover" width="1200">
+              <img :src="`/lowCode/static/${tem.fileName}`" style="width: 100%" />
               <div slot="reference">
-                <img :src="`/api/static/${tem.fileName}`" style="width: 100%; max-height: 150px" />
+                <img :src="`/lowCode/static/${tem.fileName}`" style="width: 100%; max-height: 150px" />
                 <div class="templateName">
                   {{ tem.temName }}
                 </div>

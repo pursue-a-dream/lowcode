@@ -25,17 +25,25 @@ function getUrlParams() {
 }
 async function initApp(Vue) {
   try {
-    if (!window.location.href.includes('isLogin') && !sessionStorage.getItem('userName')) {
-      window.location.href = window.location.origin + '/lowCode/userInfo'
-      return
-    }
-    try {
-      const { userName } = getUrlParams()
-      if (userName) {
-        store.commit('SET_USER', userName, { root: true })
-        sessionStorage.setItem('userName', userName)
+    if (process.env.NODE_ENV != 'development') {
+      if (!window.location.href.includes('isLogin') && !sessionStorage.getItem('userName')) {
+        window.location.href = window.location.origin + '/lowCode/userInfo'
+        return
       }
-    } catch (error) {}
+      try {
+        const { userName } = getUrlParams()
+        if (userName) {
+          store.commit('SET_USER', userName, { root: true })
+          sessionStorage.setItem('userName', userName)
+        }
+      } catch (error) {}
+      // 获取用户信息
+      await store.dispatch('main/getUserInfo')
+    } else {
+      sessionStorage.setItem('userName', 'sunpeixian')
+      await store.dispatch('main/getUserInfo')
+    }
+
     await renderTheme({ skin: 'blue' })
     // 初始化vue实例
     mountVueInstance(Vue, App, {

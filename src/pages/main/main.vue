@@ -20,6 +20,7 @@
             </template>
           </el-menu>
         </div>
+        <div class="float-right" style="margin-right: 20px">{{ userInfo.userNameCn }}</div>
       </h-layout-header>
       <router-view />
     </h-layout>
@@ -28,10 +29,12 @@
 
 <script>
 import { createDesigner } from '@/designer.js'
+import { mapState } from 'vuex'
 import navList from '@/nav.config.js'
 export default {
   name: 'App',
   computed: {
+    ...mapState(['userInfo']),
     menu() {
       return navList
     },

@@ -24,7 +24,8 @@ export function createDesigner(vueInstance) {
     formWidget: null, //表单设计容器
 
     cssClassList: [], //自定义样式列表
-
+    toduAcitonArr: [], // 触发事件执行数组
+    stopToduAcitonArrTodo: false, //停止触发事件执行数组执行事件
     historyData: {
       index: -1, //index: 0,
       maxStep: 20,
@@ -824,9 +825,9 @@ export function createDesigner(vueInstance) {
     },
 
     saveFormContentToStorage() {
-      window.localStorage.setItem('widget__list__backup', JSON.stringify(this.widgetList))
-      window.localStorage.setItem('layers__backup', JSON.stringify(this.layers))
-      window.localStorage.setItem('form__config__backup', JSON.stringify(this.formConfig))
+      // window.localStorage.setItem('widget__list__backup', JSON.stringify(this.widgetList))
+      // window.localStorage.setItem('layers__backup', JSON.stringify(this.layers))
+      // window.localStorage.setItem('form__config__backup', JSON.stringify(this.formConfig))
     },
 
     loadFormContentFromStorage() {
@@ -847,7 +848,7 @@ export function createDesigner(vueInstance) {
       }
     },
     // 处理widget事件,事件分为两大类，全局事件和组件事件都是通过designer的变量值来触发
-    dealWidgetAction(widget, action, designer) {
+    async dealWidgetAction(widget, action, designer) {
       // 判断是否有此事件的处理函数
       let toduArr = widget.eventArr.filter(event => {
         return event.effectAciton === action
@@ -857,9 +858,25 @@ export function createDesigner(vueInstance) {
         return
       }
       let { toduAcitonArr, eventId } = toduArr[0]
-      // console.log('widget', widget.eventArr, toduArr[0])
-      toduAcitonArr.map(action => {
+      this.toduAcitonArr = toduAcitonArr
+      await this.doAcitonArr(designer, eventId, 0)
+    },
+    doAcitonArr(designer, eventId, index) {
+      // 停止继续执行
+      if (index != 0 && this.stopToduAcitonArrTodo) {
+        return
+      }
+      if (index == 0) {
+        this.stopToduAcitonArrTodo = false
+      }
+      let isRun = false
+      let action = this.toduAcitonArr[index]
+      if (action) {
         let [v1, v2] = action.value
+        isRun = true
+        // let timeOut = setTimeout(() => {
+        //   isRun = false
+        // }, 500)
         // 全局事件
         if (v1 === 'globalAction') {
           let selectedLayer = this.layers.filter(item => {
@@ -890,18 +907,23 @@ export function createDesigner(vueInstance) {
             [v1 + v2]: !designer.triggerEventStatus[v1 + v2],
           }
         }
-      })
+      }
+      setTimeout(() => {
+        this.doAcitonArr(designer, eventId, index + 1)
+      }, 500)
+    },
+    stopToduAcitonArr() {
+      this.stopToduAcitonArrTodo = true
     },
     // 通过widget.options.name（为组件唯一标识） 获取其label值
-    getWidgetByName(name, prop) {
-      console.log('getWidgetByName', name, prop)
+    getWidgetByID(widgetId, prop) {
       let selectedWidget = null
       const findWidget = widgetArr => {
         if (!Array.isArray(widgetArr) || widgetArr.length === 0) {
           return
         }
         widgetArr.map(item => {
-          if (item.options.name === name) {
+          if (item.id === widgetId) {
             selectedWidget = item
             return
           }
@@ -913,3 +935,4 @@ export function createDesigner(vueInstance) {
     },
   }
 }
+

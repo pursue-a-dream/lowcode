@@ -102,7 +102,7 @@
                   <template v-for="(toduAciton, index) in event.toduAcitonArr">
                     <p :key="index">
                       {{ index + 1 }} 、
-                      {{ getWidgetByName(toduAciton.value[0], eventIndex) }}
+                      {{ getWidgetNameById(toduAciton.value[0], eventIndex) }}
                       {{ triggerEventMap[toduAciton.value[1]] }}
                     </p>
                     <span :key="index + 'router'" v-if="toduAciton.router">
@@ -140,7 +140,7 @@
                   数据源:{{
                     event['paramsList'].length > 0
                       ? event['paramsList'].map(item => {
-                          return getWidgetByName(item[0]) + ':' + item[1]
+                          return getWidgetNameById(item[0]) + ':' + item[1]
                         })
                       : '暂无数据源'
                   }}
@@ -309,6 +309,7 @@ export default {
       curTriggerEvent: {},
       eventIndex: '',
       widgetTypeToFormItemArrMap,
+      widgetIdToWidgetMap: {},
     }
   },
   computed: {
@@ -351,9 +352,10 @@ export default {
           return
         }
         widgetList.map(widget => {
+          this.widgetIdToWidgetMap[widget.id] = widget
           if (widget.triggerEvent && widget.triggerEvent.length > 0) {
             baseTriggerEventOptions.push({
-              value: widget.options.name,
+              value: widget.id,
               label: widget.options.label || widget.options.name,
               children: widget.triggerEvent,
             })
@@ -523,14 +525,8 @@ export default {
       })
     },
     // 通过widget的ID获取其label
-    getWidgetByName(name, index) {
-      let findName = name
-      if (!findName) {
-        // 说明此此事件管理的组件已经被删除，去除此组件
-        this.selectedWidget.eventArr.splice(index, 1)
-        return
-      }
-      return findName
+    getWidgetNameById(id) {
+      return this.widgetIdToWidgetMap[id]?.options.name
     },
     eventEdit(event, eventIndex) {
       this.curTriggerEvent = event

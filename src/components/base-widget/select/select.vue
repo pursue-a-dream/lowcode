@@ -11,7 +11,7 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
     :form-data="formData"
-    :rules="[]"
+    :rules="rules"
   >
     <el-select
       v-model="selectVal"
@@ -77,10 +77,32 @@ export default {
         this.formData && (this.formData[this.widget.options.fieldName] = val)
       },
     },
+    rules() {
+      return [
+        {
+          validator: (rule, value, callback) => {
+            if (this.widget.options.isRequired) {
+              if (!value) {
+                callback(new Error('请选择'))
+              }
+              callback()
+            }
+            callback()
+          },
+          required: this.widget.options.isRequired,
+          trigger: 'change',
+        },
+      ]
+    },
   },
   watch: {
     'widget.options': {
       handler(newV, oldV) {
+        if (newV.multiple) {
+          this.widget.value = []
+        } else {
+          this.widget.value = ''
+        }
         this.selectKey = new Date().getTime()
       },
       deep: true,

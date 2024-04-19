@@ -5,6 +5,9 @@ export const widgetConfig = {
   widgetList: [],
   hasStyleConfig: true,
   activeStyle: {},
+  styleConfig: {
+    padding: { top: 0, left: 10, right: 10, bottom: 0 },
+  },
   options: {
     label: 'button',
     size: null,

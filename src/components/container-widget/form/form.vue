@@ -71,18 +71,24 @@ export default {
         let formSubmit = this.widget.id + 'formSubmit'
         let formReset = this.widget.id + 'formReset'
         if (newV[formSubmit] != oldV[formSubmit]) {
-          this.$message({
-            message: '表单提交',
-            type: 'success',
+          this.$refs[this.widget.options.name].validate((valid, invalidFields) => {
+            if (valid) {
+              this.resetForm()
+              this.$message({
+                message: '表单提交',
+                type: 'success',
+              })
+            } else {
+              this.designer.stopToduAcitonArr()
+            }
           })
         }
         if (newV[formReset] != oldV[formReset]) {
-          this.formData = {}
+          this.resetForm()
           this.$message({
             message: '表单重置',
             type: 'success',
           })
-          this.$refs[this.widget.options.name].resetFields()
         }
       },
       deep: true,
@@ -103,6 +109,12 @@ export default {
     },
   },
   methods: {
+    resetForm() {
+      this.widget.widgetList.map(item => {
+        Array.isArray(item.value) ? (item.value = []) : (item.value = '')
+      })
+      this.$refs[this.widget.options.name].resetFields()
+    },
     onContainerDragAdd() {},
     onContainerDragUpdate() {},
     checkContainerMove() {},

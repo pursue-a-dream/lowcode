@@ -11,7 +11,13 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
     :form-data="formData"
-    :rules="[]"
+    :rules="[
+      {
+        required: widget.options.isRequired,
+        message: '请输入',
+        trigger: 'change',
+      },
+    ]"
   >
     <el-input :style="widget.activeStyle" v-bind="widget.options" v-model="inputVal"></el-input>
   </FormItemWrapper>

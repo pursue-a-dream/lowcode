@@ -53,7 +53,7 @@ export default {
               dataArr.push(widget.widgetProvideData[key])
             })
             baseTriggerEventOptions.push({
-              value: widget.options.name,
+              value: widget.id,
               label: widget.options.label,
               children: dataArr,
             })

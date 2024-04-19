@@ -14,9 +14,32 @@
           />
         </h-layout-header>
         <h-layout-content class="form-widget-main">
-          <widget-content :designer="designer" />
+          <widget-content v-if="tagList?.length > 0" :designer="designer" />
+          <p v-else class="no-widget-hint">
+            请先
+            <el-button
+              size="small"
+              @click="
+                () => {
+                  this.$refs.tag.$refs.addTem.toShow()
+                }
+              "
+              >新增页面</el-button
+            >
+            后再进行编辑操作
+          </p>
         </h-layout-content>
-        <tag v-if="this.$route.query.editID" ref="tag" :designer="designer" class="tagContent" />
+        <tag
+          v-if="this.$route.query.editID"
+          ref="tag"
+          :designer="designer"
+          class="tagContent"
+          @updateTagList="
+            val => {
+              tagList = val
+            }
+          "
+        />
       </h-layout>
 
       <h-layout-aside class="setting-panel">
@@ -43,6 +66,7 @@ export default {
   data() {
     return {
       designer: createDesigner(this),
+      tagList: [],
     }
   },
   created() {
@@ -62,6 +86,20 @@ export default {
 <style lang="scss">
 .dragContent {
   height: calc(100% - 48px);
+  .no-widget-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #999999;
+  }
   .h-layout-aside.side-panel {
     width: 260px !important;
     overflow-y: hidden;

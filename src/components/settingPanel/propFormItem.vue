@@ -44,10 +44,10 @@
         <div v-else class="d-flex align-center space-between">
           <!-- {{
             formData[prop].map(item => {
-              return getWidgetByName(item[0]) + ':' + item[1]
+              return getWidgetByID(item[0]) + ':' + item[1]
             })
           }} -->
-          <!-- {{ getWidgetByName(formData[prop][0]) }}: {{ formData[prop][1] }} -->
+          <!-- {{ getWidgetByID(formData[prop][0]) }}: {{ formData[prop][1] }} -->
           <i class="h-icon-delete" @click="formData[prop] = []"></i>
         </div>
       </div>
@@ -81,8 +81,8 @@ export default {
       this.formData[this.prop] = val
     },
     // 通过widget的ID获取其label
-    getWidgetByName(name, index) {
-      let findName = this.designer.getWidgetByName(name, 'label')
+    getWidgetByID(name, index) {
+      let findName = this.designer.getWidgetByID(name, 'label')
       if (!findName) {
         // 说明此此事件管理的组件已经被删除，去除此组件
         this.formData[this.prop] = []
