@@ -9,15 +9,15 @@
   >
     <draggable
       :class="[selected ? 'selected' : '', customClass, 'dragContent']"
-      :list="widget.widgetList"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
+      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
       @click.native.stop="selectWidget(widget)"
     >
       <template v-for="(subWidget, swIdx) in widget.widgetList">
         <component
-          :key="subWidget.id"
           :is="subWidget.type + '-widget'"
+          :key="subWidget.id"
           :widget="subWidget"
           :designer="designer"
           :parent-list="widget.widgetList"
@@ -32,7 +32,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'left-right-widget',
+  name: 'LeftRightWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,

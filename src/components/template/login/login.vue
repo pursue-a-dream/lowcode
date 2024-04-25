@@ -19,16 +19,16 @@
     >
       <draggable
         class="login-drag-content"
-        :list="widget.widgetList"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         handle=".drag-handler"
+        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
         @click.native.stop="selectWidget(widget)"
       >
         <template v-for="(subWidget, swIdx) in widget.widgetList" class="formItem">
           <component
+            :is="subWidget.type + '-widget'"
             :key="subWidget.id"
             :style="widget.options.inline ? `width: ${widget.options.childWidthPercent}` : ''"
-            :is="subWidget.type + '-widget'"
             :widget="subWidget"
             :designer="designer"
             :parent-list="widget.widgetList"

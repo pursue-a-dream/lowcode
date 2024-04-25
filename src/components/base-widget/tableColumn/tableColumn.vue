@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <container-wrapper
     :designer="designer"
@@ -6,89 +5,75 @@
     :parent-widget="parentWidget"
     :parent-list="parentList"
     :index-of-parent-list="indexOfParentList"
+    :class="[columnSelected ? 'columnSelected' : '', customClass]"
+    @click.native.stop="selectWidget(widget)"
   >
     <template v-slot:default>
       <draggable
-        :class="[columnSelected ? 'columnSelected' : '', customClass]"
-        style="min-height: 40px; padding-top: 5px"
-        :list="widget.widgetList"
+        v-if="widget.options.showType === 'normal'"
+        class="tableCellContent"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         handle=".drag-handler"
-        @add="evt => onContainerDragAdd(evt, widget.widgetList)"
-        @update="onContainerDragUpdate"
         :move="checkContainerMove"
-        @click.native.stop="selectWidget(widget)"
+        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
+        @update="onContainerDragUpdate"
       >
-        <template v-if="widget.options.showType === 'normal'">
+        <template>
           <span v-show="widget.widgetList.length === 0">{{
             widget.options.prop && (row[widget.options.prop] || '--')
           }}</span>
           <template v-for="(subWidget, swIdx) in widget.widgetList">
             <component
-              v-if="'container' === subWidget.category"
-              :key="subWidget.id"
               :is="subWidget.type + '-widget'"
+              :key="subWidget.id"
               :widget="subWidget"
               :designer="designer"
               :parent-list="widget.widgetList"
               :index-of-parent-list="swIdx"
               :parent-widget="widget"
-              :row="row"
-              @selectRow="selectRow"
-            ></component>
-            <component
-              v-else
-              :is="subWidget.type + '-widget'"
-              :widget="subWidget"
-              :designer="designer"
-              :parent-list="widget.widgetList"
-              :index-of-parent-list="swIdx"
-              :parent-widget="widget"
-              :design-state="true"
-              :key="subWidget.id"
               :row="row"
               @selectRow="selectRow"
             ></component>
           </template>
         </template>
-        <template v-else-if="widget.options.showType === 'time'">
-          {{ timeToString(row[widget.options.prop])?.localeString }}</template
-        >
-        <template v-else-if="widget.options.showType === 'statusMap'">
-          <span
-            :style="`color: ${
-              widget.options.statusMap[row[widget.options.prop]]
-                ? widget.options.statusMap[row[widget.options.prop]].color
-                : ''
-            }`"
-            >{{
-              widget.options.statusMap[row[widget.options.prop]]
-                ? widget.options.statusMap[row[widget.options.prop]].label
-                : '--'
-            }}</span
-          >
-        </template>
-        <template v-else-if="widget.options.showType === 'filterArr'">
-          <el-tag
-            :type="
-              widget.options.filterArr[row[widget.options.prop]]
-                ? widget.options.filterArr[row[widget.options.prop]].type
-                : ''
-            "
-            :color="
-              widget.options.filterArr[row[widget.options.prop]]
-                ? widget.options.filterArr[row[widget.options.prop]].color
-                : ''
-            "
-          >
-            {{
-              widget.options.filterArr[row[widget.options.prop]]
-                ? widget.options.filterArr[row[widget.options.prop]].text
-                : ''
-            }}</el-tag
-          >
-        </template>
       </draggable>
+      <div v-if="widget.options.showType === 'time'" class="tableCellContent">
+        {{ timeToString(row[widget.options.prop])?.localeString }}
+      </div>
+      <div v-if="widget.options.showType === 'statusMap'" class="tableCellContent">
+        <span
+          :style="`color: ${
+            widget.options.statusMap[row[widget.options.prop]]
+              ? widget.options.statusMap[row[widget.options.prop]].color
+              : ''
+          }`"
+          >{{
+            widget.options.statusMap[row[widget.options.prop]]
+              ? widget.options.statusMap[row[widget.options.prop]].label
+              : '--'
+          }}</span
+        >
+      </div>
+      <div v-if="widget.options.showType === 'filterArr'" class="tableCellContent">
+        <el-tag
+          :type="
+            widget.options.filterArr[row[widget.options.prop]]
+              ? widget.options.filterArr[row[widget.options.prop]].type
+              : ''
+          "
+          :color="
+            widget.options.filterArr[row[widget.options.prop]]
+              ? widget.options.filterArr[row[widget.options.prop]].color
+              : ''
+          "
+        >
+          {{
+            widget.options.filterArr[row[widget.options.prop]]
+              ? widget.options.filterArr[row[widget.options.prop]].text
+              : ''
+          }}</el-tag
+        >
+      </div>
     </template>
   </container-wrapper>
 </template>
@@ -97,7 +82,7 @@
 import containerMixin from '@/components/container-widget/containerMixin'
 import { timeToString } from '@/utils/util.js'
 export default {
-  name: 'table-column-widget',
+  name: 'TableColumnWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -148,5 +133,8 @@ export default {
 <style lang="scss">
 .columnSelected {
   border: 2px solid #409eff !important;
+}
+.tableCellContent {
+  padding: 10px 0;
 }
 </style>

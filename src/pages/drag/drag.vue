@@ -14,7 +14,7 @@
           />
         </h-layout-header>
         <h-layout-content class="form-widget-main">
-          <widget-content v-if="tagList?.length > 0" :designer="designer" />
+          <widget-content v-if="tagList?.length > 0 || !$route.query.editID" :designer="designer" />
           <p v-else class="no-widget-hint">
             请先
             <el-button

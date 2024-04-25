@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <container-wrapper
     :designer="designer"
@@ -22,10 +21,10 @@
       @size-change="size => (pageSize = size)"
     >
       <el-table
+        :key="tableKey"
         slot-scope="props"
         :data="props.data"
         force-scroll
-        :key="tableKey"
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" />
@@ -69,7 +68,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'table-widget',
+  name: 'TableWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -109,8 +108,8 @@ export default {
         let tableEdit = this.widget.id + 'tableEdit'
         let tableDelete = this.widget.id + 'tableDelete'
         let tableReload = this.widget.id + 'tableReload'
-        if (newV[tableEdit] != oldV[tableEdit]) {
-        }
+        // if (newV[tableEdit] != oldV[tableEdit]) {
+        // }
         if (newV[tableDelete] != oldV[tableDelete]) {
           // 单个删除
           if (this.curRow.id) {

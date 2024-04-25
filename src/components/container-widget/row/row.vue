@@ -6,13 +6,14 @@
     :parent-list="parentList"
     :index-of-parent-list="indexOfParentList"
     :class="[selected ? 'selected' : '', customClass]"
+    style="padding: 5px; border: 1px dashed #336699"
     @click.native.stop="selectWidget(widget)"
   >
-    <el-tabs v-model="activeName" class="tabs-content" v-bind="widget.options" @tab-click="handleClick">
+    <el-row v-model="activeName" class="row-content" v-bind="widget.options" @tab-click="handleClick">
       <template v-for="(subWidget, swIdx) in widget.widgetList">
-        <el-tab-pane
+        <el-col
           :key="subWidget.id"
-          style="min-height: 200px"
+          class="colContent"
           v-bind="subWidget.options"
           :label="subWidget.options?.paneLabel"
         >
@@ -26,16 +27,16 @@
             :parent-widget="widget"
             :design-state="true"
           ></component>
-        </el-tab-pane>
+        </el-col>
       </template>
-    </el-tabs>
+    </el-row>
   </container-wrapper>
 </template>
 
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'TabsWidget',
+  name: 'RowWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -84,23 +85,13 @@ export default {
 </script>
 
 <style lang="scss">
-.tabs-content {
-  padding: 2px;
-  outline: 1px dashed #336699;
-  .el-tab-pane {
-    // padding: 0 5px;
-
-    .container-wrapper {
-      margin-bottom: 0;
-    }
-  }
-  .el-tabs__item {
-    height: 40px;
-    line-height: 40px;
-  }
+.row-content {
   // outline: 1px dashed #336699;
-  // .selected {
-  //   outline: 2px solid #409eff !important;
-  // }
+  .selected {
+    outline: 2px solid #409eff !important;
+  }
+  .colContent {
+    border: 1px dashed #336699;
+  }
 }
 </style>

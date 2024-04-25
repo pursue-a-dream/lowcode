@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div class="setting-container">
     <el-tabs v-model="activeName">
@@ -77,11 +76,11 @@
         <template v-else>
           <el-collapse v-model="eventActiveNames">
             <el-collapse-item
+              v-show="selectedWidget.actions && selectedWidget.actions.length > 0"
               title="事件回调"
               name="1"
-              v-show="selectedWidget.actions && selectedWidget.actions.length > 0"
             >
-              <div class="addBtn" v-show="curTodoAciton && curTodoAciton.length > 0">
+              <div v-show="curTodoAciton && curTodoAciton.length > 0" class="addBtn">
                 <el-button style="width: 90%" type="primary" @click="addActionVisible = true"
                   >添加事件</el-button
                 >
@@ -105,10 +104,10 @@
                       {{ getWidgetNameById(toduAciton.value[0], eventIndex) }}
                       {{ triggerEventMap[toduAciton.value[1]] }}
                     </p>
-                    <span :key="index + 'router'" v-if="toduAciton.router">
+                    <span v-if="toduAciton.router" :key="index + 'router'">
                       跳转地址:{{ toduAciton.router }}
                     </span>
-                    <span :key="index + 'request'" v-if="toduAciton.reqMethod">
+                    <span v-if="toduAciton.reqMethod" :key="index + 'request'">
                       请求方式:{{ toduAciton.reqMethod + ':' + toduAciton.reqUrl }}数据源:
                       {{
                         toduAciton.paramsList.length > 0 &&
@@ -257,7 +256,7 @@
     <!-- 编辑triggerEvent -->
     <triggerEventEdit
       ref="triggerEventEdit"
-      :curTriggerEvent="curTriggerEvent"
+      :cur-trigger-event="curTriggerEvent"
       :designer="designer"
       @editConfim="editConfim"
     />

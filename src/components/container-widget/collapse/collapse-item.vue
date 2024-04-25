@@ -6,11 +6,11 @@
     :parent-widget="parentWidget"
     :parent-list="parentList"
     :index-of-parent-list="indexOfParentList"
-    style="height: 200px"
   >
+    <!-- :list="widget.widgetList" -->
     <draggable
-      :class="[tabPaneSelected ? 'tabPaneSelected' : 'tabPaneUnSelected']"
-      style="padding: 5px; min-height: 50px; height: 100%"
+      :class="[collapseItemSelected ? 'collapseItemSelected' : '']"
+      style="padding: 5px; min-height: 50px"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
       :move="checkContainerMove"
@@ -49,8 +49,9 @@
 
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
+import { containers, basicFields } from '@/config/widgetsConfig'
 export default {
-  name: 'TabPaneWidget',
+  name: 'CollapseItemWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -61,10 +62,10 @@ export default {
     row: Object,
   },
   data() {
-    return {}
+    return { containers, basicFields }
   },
   computed: {
-    tabPaneSelected() {
+    collapseItemSelected() {
       return this.widget.id === this.designer.selectedId
     },
   },
@@ -84,7 +85,20 @@ export default {
     },
   },
   methods: {
-    onContainerDragAdd() {},
+    onContainerDragAdd(ev, widgetList) {
+      let { widgettype, widgetindex } = ev.clone.attributes
+      // JSON.parse(ev.clone.attributes.widgetinfostr.value)
+      let widgetOrwidgetArr
+      if (widgettype.value == 'container') {
+        console.log('this.containers', this.containers, widgetindex)
+        widgetOrwidgetArr = this.designer.copyNewContainerWidget(this.containers[widgetindex.value])
+      }
+      if (widgettype.value == 'basic') {
+        widgetOrwidgetArr = this.designer.copyNewFieldWidget(this.basicFields[widgetindex.value])
+      }
+      widgetList.push(widgetOrwidgetArr)
+      console.log('ev', ev, widgetList)
+    },
     onContainerDragUpdate() {},
     checkContainerMove() {},
   },
@@ -92,10 +106,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tabPaneSelected {
+.collapseItemSelected {
   border: 2px solid #409eff !important;
-}
-.tabPaneUnSelected {
-  border: 1px dashed #336699;
 }
 </style>

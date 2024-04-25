@@ -9,11 +9,10 @@
     <draggable
       class="formContent"
       :class="[selected ? 'selected' : '', customClass]"
-      :list="widget.widgetList"
       :move="checkContainerMove"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
-      @add="evt => onContainerDragAdd(evt, widget.widgetList)"
+      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
       @update="onContainerDragUpdate"
       @click.native.stop="selectWidget(widget)"
     >

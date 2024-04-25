@@ -10,11 +10,10 @@
       <draggable
         class="formContent"
         :class="[selected ? 'selected' : '', customClass]"
-        :list="widget.widgetList"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         :move="checkContainerMove"
         handle=".drag-handler"
-        @add="evt => onContainerDragAdd(evt, widget.widgetList)"
+        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
         @update="onContainerDragUpdate"
         @click.native.stop="selectWidget(widget)"
       >
@@ -41,7 +40,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'form-widget',
+  name: 'FormWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,

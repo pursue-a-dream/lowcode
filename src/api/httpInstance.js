@@ -37,12 +37,12 @@ http.interceptors.response.use(
     })
   },
   function (error) {
-    // if (sessionStorage.getItem('userName') && error.message == 'Network Error') {
-    //   console.log(2323232, (Window.error = error), error.message, error.response)
-    //   // 认证失败，直接走OA认证逻辑
-    //   sessionStorage.clear()
-    //   window.location.reload()
-    // }
+    if (sessionStorage.getItem('userName') && error.message == 'Network Error') {
+      console.log(2323232, (Window.error = error), error.message, error.response)
+      // 认证失败，直接走OA认证逻辑
+      sessionStorage.clear()
+      window.location.reload()
+    }
     if (error.message.indexOf('timeout') > -1) {
       // 多语言需要自己在项目中配置
       Message.error('请求超时，请重试！')

@@ -2,9 +2,9 @@
   <draggable
     v-if="widget.widgetList && widget.widgetList.length > 0"
     class="commonTemContent"
-    :list="widget.widgetList"
     v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
     handle=".drag-handler"
+    @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
   >
     <template v-for="(subWidget, swIdx) in widget.widgetList">
       <component
@@ -35,7 +35,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'commonTem-widget',
+  name: 'CommonTemWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,

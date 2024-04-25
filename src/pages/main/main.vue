@@ -45,7 +45,7 @@ export default {
           activeRouter = item.router
         }
       })
-      if (!!activeRouter) {
+      if (activeRouter) {
         navList.forEach(item => {
           if (window.location.href.indexOf(item.router) > -1) {
             activeRouter = item.router

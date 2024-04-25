@@ -6,11 +6,11 @@
     :parent-widget="parentWidget"
     :parent-list="parentList"
     :index-of-parent-list="indexOfParentList"
-    style="height: 200px"
+    style="margin: 0"
   >
     <draggable
-      :class="[tabPaneSelected ? 'tabPaneSelected' : 'tabPaneUnSelected']"
-      style="padding: 5px; min-height: 50px; height: 100%"
+      :class="[colSelected ? 'colSelected' : '']"
+      style="padding: 5px; min-height: 50px"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
       :move="checkContainerMove"
@@ -50,7 +50,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'TabPaneWidget',
+  name: 'ColWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -64,7 +64,7 @@ export default {
     return {}
   },
   computed: {
-    tabPaneSelected() {
+    colSelected() {
       return this.widget.id === this.designer.selectedId
     },
   },
@@ -92,10 +92,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tabPaneSelected {
+.colSelected {
   border: 2px solid #409eff !important;
-}
-.tabPaneUnSelected {
-  border: 1px dashed #336699;
 }
 </style>

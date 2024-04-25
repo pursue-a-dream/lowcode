@@ -19,14 +19,14 @@
     >
       <draggable
         style="min-height: 100px"
-        :list="widget.widgetList"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         handle=".drag-handler"
+        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
       >
         <template v-for="(subWidget, swIdx) in widget.widgetList">
           <component
-            :key="subWidget.id"
             :is="subWidget.type + '-widget'"
+            :key="subWidget.id"
             :widget="subWidget"
             :designer="designer"
             :parent-list="widget.widgetList"
@@ -59,7 +59,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'dialog-widget',
+  name: 'DialogWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -109,6 +109,7 @@ export default {
 .dialog-content {
   padding: 10px 0;
   outline: 1px dashed #336699;
+
   .selected {
     outline: 2px solid #409eff !important;
   }

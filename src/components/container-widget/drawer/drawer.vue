@@ -20,14 +20,14 @@
     >
       <draggable
         style="width: 100%; height: 100%"
-        :list="widget.widgetList"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         handle=".drag-handler"
+        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
       >
         <template v-for="(subWidget, swIdx) in widget.widgetList">
           <component
-            :key="subWidget.id"
             :is="subWidget.type + '-widget'"
+            :key="subWidget.id"
             :widget="subWidget"
             :designer="designer"
             :parent-list="widget.widgetList"
@@ -60,7 +60,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'drawer-widget',
+  name: 'DrawerWidget',
   mixins: [containerMixin],
   props: {
     widget: Object,

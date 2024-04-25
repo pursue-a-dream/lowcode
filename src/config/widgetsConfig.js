@@ -168,7 +168,7 @@ export const optionNameToFormItem = {
     buttonOptions: ['primary', 'success', 'warning', 'danger', 'info', 'text', 'link', 'ghost'],
     inputOptions: ['text', 'textarea'],
     'message-boxOptions': ['success', 'info', 'warning', 'question', 'error'],
-    tabsOptions: ['card', 'border-card'],
+    tabsOptions: ['card'], //隐藏 'border-card' 此模式有bug
   },
   icon: {
     type: 'select',
@@ -394,3 +394,4 @@ export function creatWidgetByWidgetOption(type, config = {}, WidgetOption) {
   newWidget.id = id
   return newWidget
 }
+

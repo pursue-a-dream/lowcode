@@ -18,7 +18,14 @@ export default {
     onContainerDragUpdate() {
       this.designer.emitHistoryChange()
     },
-
+    // 添加折叠行
+    appendCollapseItem(widget) {
+      this.designer.appendCollapseItem(widget)
+    },
+    // 添加row的col
+    appendRowItem(widget) {
+      this.designer.appendRowItem(widget)
+    },
     checkContainerMove(evt) {
       return this.designer.checkWidgetMove(evt)
     },
@@ -87,3 +94,4 @@ export default {
     },
   },
 }
+

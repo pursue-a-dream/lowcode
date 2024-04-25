@@ -47,7 +47,7 @@ module.exports = {
         },
       },
       '^/lowCode': {
-        target: ' https://10.19.205.185:8080/',
+        target: 'https://10.19.205.185:8080/',
         changeOrigin: true,
       },
     },

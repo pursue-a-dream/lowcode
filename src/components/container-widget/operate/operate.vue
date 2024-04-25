@@ -10,9 +10,9 @@
     <draggable
       class="operateContent"
       :class="[selected ? 'selected' : '']"
-      :list="widget.widgetList"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
+      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
       @click.native.stop="selectWidget(widget)"
     >
       <template v-if="widget.widgetList && widget.widgetList.length > 0">
@@ -29,7 +29,7 @@
           ></component>
         </template>
       </template>
-      <DragEmpty v-else :emptyDesc="widget.emptyDesc"></DragEmpty>
+      <DragEmpty v-else :empty-desc="widget.emptyDesc"></DragEmpty>
     </draggable>
   </container-wrapper>
 </template>
@@ -38,8 +38,8 @@
 import DragEmpty from '../../common/dragEmpty/dragEmpty'
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
+  name: 'OperateWidget',
   components: { DragEmpty },
-  name: 'operate-widget',
   mixins: [containerMixin],
   props: {
     widget: Object,

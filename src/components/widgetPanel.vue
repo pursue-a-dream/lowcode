@@ -5,11 +5,11 @@
         <span slot="label"> 组件库 </span>
         <el-collapse v-model="activeNames">
           <el-collapse-item title="容器组件" name="1">
+            <!-- :clone="handleContainerWidgetClone" -->
             <draggable
               tag="ul"
               :list="containers"
               :group="{ name: 'dragGroup', pull: 'clone', put: false }"
-              :clone="handleContainerWidgetClone"
               ghost-class="ghost"
               :sort="false"
               :move="checkContainerMove"
@@ -21,6 +21,8 @@
                 :key="index"
                 class="container-widget-item"
                 :title="ctn.displayName"
+                widgetType="container"
+                :widgetIndex="index"
                 @dblclick="addContainerByDbClick(ctn)"
               >
                 {{ ctn.name }}
@@ -28,11 +30,11 @@
             </draggable>
           </el-collapse-item>
           <el-collapse-item title="基础组件" name="2">
+            <!-- :clone="handleFieldWidgetClone" -->
             <draggable
               tag="ul"
               :list="basicFields"
               :group="{ name: 'dragGroup', pull: 'clone', put: false }"
-              :clone="handleFieldWidgetClone"
               ghost-class="ghost"
               :sort="false"
               :move="checkContainerMove"
@@ -44,6 +46,8 @@
                 :key="index"
                 class="container-widget-item"
                 :title="bas.displayName"
+                widgetType="basic"
+                :widgetIndex="index"
                 @dblclick="addContainerByDbClick(bas)"
               >
                 {{ bas.name }}
@@ -53,23 +57,27 @@
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane label="模板页" name="second">
+        <el-input v-model="inputVal" placeholder="请输入模板名进行模糊匹配"></el-input>
+        <!-- :clone="copyTemWidget" -->
         <draggable
           tag="ul"
           :list="commonTemList"
           :group="{ name: 'dragGroup', pull: 'clone', put: false }"
-          :clone="copyTemWidget"
           ghost-class="ghost"
           :sort="false"
-          :move="checkContainerMove"
           @end="onContainerDragEnd"
         >
           <el-card
-            v-for="tem in commonTemList"
+            v-for="tem in commonTemList.filter(item => {
+              return item.temName.includes(inputVal)
+            })"
             :key="tem.id"
+            widget-type="tem"
+            :widget-name="tem.temName"
             :body-style="{ padding: '0px' }"
             style="cursor: pointer"
           >
-            <el-popover placement="right" trigger="hover" width="1200">
+            <el-popover placement="right" trigger="hover" width="700">
               <img :src="`/lowCode/static/${tem.fileName}`" style="width: 100%" />
               <div slot="reference">
                 <img :src="`/lowCode/static/${tem.fileName}`" style="width: 100%; max-height: 150px" />
@@ -98,7 +106,6 @@
 import { mapActions } from 'vuex'
 import { containers, basicFields } from '@/config/widgetsConfig'
 import templateArr from '@/config/temJson/index.js'
-import { type } from 'os'
 import { transObjToStr, transStrFnToFn } from '@/utils/util.js'
 export default {
   props: {
@@ -107,6 +114,7 @@ export default {
   data() {
     return {
       activeName: 'first',
+      inputVal: '',
       activeNames: ['1', '2'],
       containers,
       basicFields,

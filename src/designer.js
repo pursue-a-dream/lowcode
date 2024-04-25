@@ -183,6 +183,22 @@ export function createDesigner(vueInstance) {
       widget.widgetList.push(newTabPane)
       this.emitHistoryChange()
     },
+    // 插入新的折叠CollapseItem
+    appendCollapseItem(widget) {
+      let newCollapseItem = deepClone(this.getContainerByType('collapse-item'))
+      newCollapseItem.id = 'collapseitem' + generateId()
+      newCollapseItem.options.name = 'collapseitem' + generateId()
+      widget.widgetList.push(newCollapseItem)
+      this.emitHistoryChange()
+    },
+    //  添加row的col
+    appendRowItem(widget) {
+      let newColItem = deepClone(this.getContainerByType('col'))
+      newColItem.id = 'col' + generateId()
+      newColItem.options.name = 'col' + generateId()
+      widget.widgetList.push(newColItem)
+      this.emitHistoryChange()
+    },
     setPropsOfMergedCols(rowArray, startRowIndex, startColIndex, newColspan, rowspan) {
       for (let i = startRowIndex; i < startRowIndex + rowspan; i++) {
         for (let j = startColIndex; j < startColIndex + newColspan; j++) {
@@ -604,9 +620,11 @@ export function createDesigner(vueInstance) {
     },
     // 拖拽拷贝模板
     copyTemWidget(origin) {
+      // 找到所有的ID 2、转成字符串 3、对所有ID进行全局替换
+      console.log('origin', origin)
       !origin.id && (origin.id = origin.type + generateId())
       Array.isArray(origin.layers) && (this.layers = [...this.layers, ...origin.layers])
-      return deepClone(origin)
+      return deepClone(origin.widgetList)
     },
     // 拖拽拷贝新的组件
     copyNewFieldWidget(origin) {
@@ -663,7 +681,21 @@ export function createDesigner(vueInstance) {
       delete newCon.displayName
       return newCon
     },
-
+    // 处理组件添加逻辑
+    dealWidgetAdd(ev, targetWidgetList) {
+      let { widgettype, widgetindex } = ev.clone.attributes
+      let widgetOrwidgetArr
+      if (widgettype.value == 'container') {
+        widgetOrwidgetArr = this.copyNewContainerWidget(containers[widgetindex.value])
+      }
+      if (widgettype.value == 'basic') {
+        widgetOrwidgetArr = this.copyNewFieldWidget(basicFields[widgetindex.value])
+      }
+      // 处理模板的情况
+      if (widgettype.value == 'tem') {
+      }
+      targetWidgetList.push(widgetOrwidgetArr)
+    },
     addContainerByDbClick(container) {
       let newCon = this.copyNewContainerWidget(container)
       this.widgetList.push(newCon)

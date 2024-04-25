@@ -5,10 +5,10 @@
     </div>
     <!-- 页面图层 -->
     <draggable
-      :list="designer.widgetList"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 300 }"
       handle=".drag-handler"
       :class="[layoutType + '-layout']"
+      @add="ev => designer.dealWidgetAdd(ev, designer.widgetList)"
     >
       <transition-group name="fade" tag="div" class="form-widget-list">
         <template v-for="(widget, index) in designer.widgetList">
@@ -43,30 +43,34 @@
 <script>
 import Draggable from 'vuedraggable'
 export default {
+  components: { Draggable },
+  props: {
+    designer: Object,
+  },
   data() {
     return {
       activeName: 'first',
       activeNames: ['1', '2'],
     }
   },
-  props: {
-    designer: Object,
-  },
-  components: {
-    Draggable,
-  },
+
   computed: {
     layoutType() {
       return this.designer.getLayoutType()
     },
   },
   watch: {
-    // 'designer.widgetList': newVal => {
-    //   let arr
-    //   newVal.forEach(element => {
-    //     Array.isArray(element) ? arr.push(...element) : arr.push(element)
-    //   })
-    //   this.designer.widgetList = arr
+    // 'designer.widgetList': {
+    //   handler(newV, oldV) {
+    //     console.log('newV', newV, this.designer.widgetList)
+    //     let arr = []
+    //     newV.forEach(element => {
+    //       Array.isArray(element) ? arr.push(...element) : arr.push(element)
+    //     })
+    //     console.log('arr', arr)
+    //     this.designer.widgetList = arr
+    //   },
+    //   deep: true,
     // },
   },
   methods: {

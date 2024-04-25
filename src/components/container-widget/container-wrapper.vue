@@ -37,6 +37,20 @@
         title="插入Tab"
         @click.stop="appendTabPane(widget)"
       ></i>
+      <!-- 添加collapse-item -->
+      <i
+        v-if="widget.type === 'collapse'"
+        class="h-icon-add"
+        title="插入折叠行"
+        @click.stop="appendCollapseItem(widget)"
+      ></i>
+      <!-- 添加row的col -->
+      <i
+        v-if="widget.type === 'row'"
+        class="h-icon-add"
+        title="插入折叠行"
+        @click.stop="appendRowItem(widget)"
+      ></i>
       <i
         class="h-icon-copy"
         v-if="widget.type === 'grid' || widget.type === 'table'"
@@ -122,3 +136,4 @@ $--color-primary: #409eff;
   }
 }
 </style>
+
