@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: 'static-content-wrapper',
+  name: 'StaticContentWrapper',
   props: {
     widget: Object,
     designer: Object,

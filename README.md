@@ -1,4 +1,4 @@
-# sec-auto-cli
+# lowtest
 
 ## Project setup
 ```

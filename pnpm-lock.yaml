@@ -1823,7 +1823,7 @@ packages:
     resolution: {integrity: sha512-7f3zZddAk92G1opoX/glbDO6YbrzmMAJAw0RJAcvunnV7sR4L9llyBUAABptKoF1Jf37UQ1QTJy5p2H4J4rBNA==}
     dependencies:
       graceful-fs: 4.2.11
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       rimraf: 2.7.1
     dev: true
 
@@ -4064,7 +4064,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001612
-      electron-to-chromium: 1.4.749
+      electron-to-chromium: 1.4.748
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
@@ -4121,7 +4121,7 @@ packages:
       infer-owner: 1.0.4
       lru-cache: 5.1.1
       mississippi: 3.0.0
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       move-concurrently: 1.0.1
       promise-inflight: 1.0.1(bluebird@3.7.2)
       rimraf: 2.7.1
@@ -4152,7 +4152,7 @@ packages:
       buffer-json: 2.0.0
       find-cache-dir: 3.3.2
       loader-utils: 1.4.2
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       neo-async: 2.6.2
       schema-utils: 2.7.1
       webpack: 4.47.0
@@ -5201,7 +5201,7 @@ packages:
       aproba: 1.2.0
       fs-write-stream-atomic: 1.0.10
       iferr: 0.1.5
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       rimraf: 2.7.1
       run-queue: 1.0.3
 
@@ -6103,8 +6103,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /electron-to-chromium@1.4.749:
-    resolution: {integrity: sha512-LRMMrM9ITOvue0PoBrvNIraVmuDbJV5QC9ierz/z5VilMdPOVMjOtpICNld3PuXuTZ3CHH/UPxX9gHhAPwi+0Q==}
+  /electron-to-chromium@1.4.748:
+    resolution: {integrity: sha512-VWqjOlPZn70UZ8FTKUOkUvBLeTQ0xpty66qV0yJcAGY2/CthI4xyW9aEozRVtuwv3Kpf5xTesmJUcPwuJmgP4A==}
     dev: true
 
   /elliptic@6.5.5:
@@ -7096,7 +7096,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       commondir: 1.0.1
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       pkg-dir: 1.0.0
     dev: true
 
@@ -9242,7 +9242,7 @@ packages:
       graceful-fs: 4.2.11
       image-size: 0.5.5
       mime: 1.6.0
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       promise: 7.3.1
       request: 2.81.0
       source-map: 0.5.7
@@ -9354,7 +9354,7 @@ packages:
     resolution: {integrity: sha512-ldcgZpjNJj71n+2Mf6yetz+c9bM4xpKtNds4LbqXzU/PTdeAX0g3ytnU1AJMEcTk2Lex4Smpe3Q/eCTsvUBxbA==}
     dependencies:
       find-cache-dir: 0.1.1
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
     dev: true
 
   /loader-runner@2.4.0:
@@ -9995,6 +9995,7 @@ packages:
 
   /minimist@0.0.8:
     resolution: {integrity: sha512-miQKw5Hv4NS1Psg2517mV4e4dYNaO3++hjAvLOAzKqZ61rH8NS1SK+vbfBWZ5PY/Me/bEWhUwqMghEW5Fb9T7Q==}
+    dev: true
 
   /minimist@1.2.0:
     resolution: {integrity: sha512-7Wl+Jz+IGWuSdgsQEJ4JunV0si/iMhg42MnQQG6h1R6TNeVenp4U9x5CC5v/gYqz/fENLQITAWXidNtVL0NNbw==}
@@ -10038,6 +10039,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 0.0.8
+    dev: true
 
   /mkdirp@0.5.6:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
@@ -10060,7 +10062,7 @@ packages:
       aproba: 1.2.0
       copy-concurrently: 1.0.5
       fs-write-stream-atomic: 1.0.10
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       rimraf: 2.7.1
       run-queue: 1.0.3
 
@@ -13104,7 +13106,7 @@ packages:
       css-tree: 1.0.0-alpha.37
       csso: 4.2.0
       js-yaml: 3.14.1
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       object.values: 1.2.0
       sax: 1.2.4
       stable: 0.1.8
@@ -14198,7 +14200,7 @@ packages:
       filesize: 3.6.1
       gzip-size: 5.1.1
       lodash: 4.17.21
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       opener: 1.5.2
       ws: 6.2.2
     transitivePeerDependencies:
@@ -14224,7 +14226,7 @@ packages:
     dependencies:
       memory-fs: 0.4.1
       mime: 2.6.0
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
       range-parser: 1.2.1
       webpack: 4.47.0
       webpack-log: 2.0.0
@@ -14491,7 +14493,7 @@ packages:
     resolution: {integrity: sha512-/lg70HAjtkUgWPVZhZcm+T4hkL8Zbtp1nFNOn3lRrxnlv50SRBv7cR7RqR+GMsd3hUXy9hWBo4CHTbFTcOYwig==}
     engines: {node: '>=4'}
     dependencies:
-      mkdirp: 0.5.1
+      mkdirp: 0.5.6
     dev: true
 
   /ws@6.2.2:
