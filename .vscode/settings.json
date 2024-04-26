@@ -28,11 +28,9 @@
     "editor.formatOnSave": true,
     // 每次保存的时候将代码按格式进行修复
     "editor.codeActionsOnSave": {
-        // 自动引入缺少的库
-        "source.addMissingImports": true,
-        // 为代码及Eslint添加自动修复功能
-        "source.fixAll": true,
-        "source.fixAll.eslint": true
+        "source.addMissingImports": "explicit",
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
     },
     // 针对.vue、.ts 和 .tsx 文件开启 ESLint 的 autoFix
     "eslint.validate": [
