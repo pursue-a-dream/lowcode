@@ -6,7 +6,7 @@
  * remark: 如果要分发VForm源码，需在本文件顶部保留此文件头信息！！
  */
 
-import { deepClone, generateId, getDefaultFormConfig, overwriteObj } from '@/utils/util.js'
+import { deepClone, generateId, getDefaultFormConfig, overwriteObj, getLastNumber } from '@/utils/util.js'
 import { containers, basicFields, eventTriggeredWidget, defaultStyleConfig } from '@/config/widgetsConfig.js'
 
 export function createDesigner(vueInstance) {
@@ -681,19 +681,47 @@ export function createDesigner(vueInstance) {
       delete newCon.displayName
       return newCon
     },
+    deepRecursionAndGenerateNewId(arr, isLayers = false, idAndNewIdArr = []) {
+      if (Array.isArray(arr)) {
+        arr.map(item => {
+          let newId = generateId()
+          idAndNewIdArr.push({ id: item.id, newId: item.type + newId })
+          if (isLayers) {
+            idAndNewIdArr.push({ id: getLastNumber(item.id), newId: newId })
+          }
+          this.deepRecursionAndGenerateNewId(item['widgetList'], isLayers, idAndNewIdArr)
+        })
+        return idAndNewIdArr
+      }
+    },
     // 处理组件添加逻辑
     dealWidgetAdd(ev, targetWidgetList) {
-      let { widgettype, widgetindex } = ev.clone.attributes
+      let { 'widget-type': widgettype, 'widget-str': widgetStr, widgetindex } = ev.clone.attributes
       let widgetOrwidgetArr
-      if (widgettype.value == 'container') {
+      if (widgettype?.value == 'container') {
         widgetOrwidgetArr = this.copyNewContainerWidget(containers[widgetindex.value])
       }
-      if (widgettype.value == 'basic') {
+      if (widgettype?.value == 'basic') {
         widgetOrwidgetArr = this.copyNewFieldWidget(basicFields[widgetindex.value])
       }
       // 处理模板的情况
-      if (widgettype.value == 'tem') {
+      if (widgettype.value == 'tem' && widgetStr.value) {
+        let { widgetList, layers } = JSON.parse(widgetStr.value)
+        let newWidgetStr = widgetStr.value
+        // 深度地柜遍历获取所有ID、替换所有ID
+        let idAndNewIdArr = this.deepRecursionAndGenerateNewId(widgetList)
+        let idAndNewIdArr2 = this.deepRecursionAndGenerateNewId(layers, true)
+        idAndNewIdArr.map(({ id, newId }) => {
+          newWidgetStr = newWidgetStr.replaceAll(id, newId)
+        })
+        idAndNewIdArr2.map(({ id, newId }) => {
+          newWidgetStr = newWidgetStr.replaceAll(id, newId)
+        })
+        targetWidgetList.push(...JSON.parse(newWidgetStr).widgetList)
+        this.layers.push(...JSON.parse(newWidgetStr).layers)
+        return
       }
+
       targetWidgetList.push(widgetOrwidgetArr)
     },
     addContainerByDbClick(container) {
@@ -896,12 +924,15 @@ export function createDesigner(vueInstance) {
     doAcitonArr(designer, eventId, index) {
       // 停止继续执行
       if (index != 0 && this.stopToduAcitonArrTodo) {
+        clearTimeout(Window.timeout)
         return
       }
       if (index == 0) {
         this.stopToduAcitonArrTodo = false
+        clearTimeout(Window.timeout)
       }
       let isRun = false
+
       let action = this.toduAcitonArr[index]
       if (action) {
         let [v1, v2] = action.value
@@ -940,9 +971,11 @@ export function createDesigner(vueInstance) {
           }
         }
       }
-      setTimeout(() => {
-        this.doAcitonArr(designer, eventId, index + 1)
-      }, 500)
+      if (!Window.timeout) {
+        Window.timeout = setTimeout(() => {
+          this.doAcitonArr(designer, eventId, index + 1)
+        }, 500)
+      }
     },
     stopToduAcitonArr() {
       this.stopToduAcitonArrTodo = true
@@ -967,4 +1000,3 @@ export function createDesigner(vueInstance) {
     },
   }
 }
-

@@ -59,20 +59,6 @@ export default {
       return this.designer.getLayoutType()
     },
   },
-  watch: {
-    // 'designer.widgetList': {
-    //   handler(newV, oldV) {
-    //     console.log('newV', newV, this.designer.widgetList)
-    //     let arr = []
-    //     newV.forEach(element => {
-    //       Array.isArray(element) ? arr.push(...element) : arr.push(element)
-    //     })
-    //     console.log('arr', arr)
-    //     this.designer.widgetList = arr
-    //   },
-    //   deep: true,
-    // },
-  },
   methods: {
     getWidgetName(widget) {
       return widget.type + '-widget'

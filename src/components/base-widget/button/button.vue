@@ -14,8 +14,8 @@
     <el-button
       ref="fieldEditor"
       v-bind="widget.options"
-      @click.native.stop="handleButtonClick"
       :style="widget.activeStyle"
+      @click.native.stop="handleButtonClick"
     >
       {{ widget.options.label }}</el-button
     ></BaseWrapper
@@ -25,8 +25,8 @@
 <script>
 import BaseWrapper from '../base-wrapper'
 export default {
+  name: 'ButtonWidget',
   components: { BaseWrapper },
-  name: 'button-widget',
   props: {
     widget: Object,
     parentWidget: Object,

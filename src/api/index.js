@@ -11,7 +11,6 @@ HTTP_OPTIONS.forEach((item, index) => {
     if ($token && sessionStorage.getItem('token')) {
       headers['Authorization'] = sessionStorage.getItem('token')
     }
-
     // 下载文件
     let responseType
     if ($blob) {

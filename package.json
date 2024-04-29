@@ -17,7 +17,7 @@
     "@hui-pro/page": "^2.0.0-beta.18",
     "@hui-pro/utils": "^1.0.0",
     "@hui/svg-icon": "^1.0.0",
-    "axios": "^0.27.0",
+    "axios": "^0.18.0",
     "brace": "^0.11.1",
     "core-js": "^3.6.5",
     "current-script-polyfill": "^1.0.0",

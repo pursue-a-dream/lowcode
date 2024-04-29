@@ -87,7 +87,7 @@ export default {
 
     .right-toolbar-con {
       text-align: left;
-      width: 600px;
+      width: auto;
     }
 
     ::v-deep .el-button--text {
@@ -96,4 +96,3 @@ export default {
   }
 }
 </style>
-

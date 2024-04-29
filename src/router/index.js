@@ -15,7 +15,7 @@ const createRoute = routes => {
 const originalPush = Router.prototype.push
 //修改原型对象中的push方法
 Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
+  return originalPush.call(this, location)
 }
 const processRouteObj = ({ menuCode, breadcrumb, children, component, ...args }) => {
   return Object.assign(

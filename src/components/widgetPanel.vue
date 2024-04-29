@@ -21,7 +21,7 @@
                 :key="index"
                 class="container-widget-item"
                 :title="ctn.displayName"
-                widgetType="container"
+                widget-type="container"
                 :widgetIndex="index"
                 @dblclick="addContainerByDbClick(ctn)"
               >
@@ -46,7 +46,7 @@
                 :key="index"
                 class="container-widget-item"
                 :title="bas.displayName"
-                widgetType="basic"
+                widget-type="basic"
                 :widgetIndex="index"
                 @dblclick="addContainerByDbClick(bas)"
               >
@@ -73,7 +73,7 @@
             })"
             :key="tem.id"
             widget-type="tem"
-            :widget-name="tem.temName"
+            :widget-str="JSON.stringify(tem)"
             :body-style="{ padding: '0px' }"
             style="cursor: pointer"
           >
@@ -234,6 +234,7 @@ export default {
     },
     addTemFormConfirm() {
       const { temType, temName, bgImg, neWTemName, newBgImg, id } = this.addTemFormData
+
       const formData = new FormData()
       const commonTem = {
         category: 'container',
@@ -247,7 +248,7 @@ export default {
         formData.append('commonTem', transObjToStr(commonTem))
         this.addCommonTem({
           payload: formData,
-          headers: {
+          header: {
             'Content-Type': 'multipart/form-data',
           },
         })

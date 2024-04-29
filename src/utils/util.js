@@ -11,6 +11,11 @@ export function throttle(fn, wait = 5000) {
     }, wait)
   }
 }
+// 获取字符串后面的数字
+export function getLastNumber(str) {
+  const match = str.match(/(\d+)$/)
+  return match ? match[1] : null
+}
 export function isNull(value) {
   return value === null || value === undefined
 }
