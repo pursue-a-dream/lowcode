@@ -23,7 +23,7 @@
     "current-script-polyfill": "^1.0.0",
     "dolphin-plugin-tools": "^2.3.0",
     "file-saver": "^2.0.5",
-    "hui": "^2.28.0",
+    "hui": "2.32.0",
     "pinia": "^2.1.6",
     "uppercamelcase": "^3.0.0",
     "vue": "^2.7.0",

@@ -198,7 +198,7 @@ export default {
     this.getCommonTemList()
   },
   methods: {
-    ...mapActions('drag', ['getCommonTem', 'addCommonTem', 'updateCommonTem']),
+    ...mapActions('drag', ['getPersonalAndGlobalTem', 'addCommonTem', 'updateCommonTem']),
     handleClick(tab, event) {},
     handleContainerWidgetClone(origin) {
       return this.designer.copyNewContainerWidget(origin)
@@ -212,17 +212,13 @@ export default {
     checkContainerMove(val) {},
     onContainerDragEnd(val, val2) {},
     getCommonTemList() {
-      this.getCommonTem('tem')
+      this.getPersonalAndGlobalTem()
         .then(res => {
           if (res.code === 1) {
             this.commonTemList = res.data.map(({ temContent, temName }) => {
-              let tem = { ...transStrFnToFn(temContent), temName }
-              while (tem.widgetList[0].type === 'commonTem') {
-                tem.widgetList = tem.widgetList[0].widgetList
-              }
-              return tem
+              return { ...temContent, temName }
             })
-            this.temNameList = res.data.map(({ temContent, temName, id }) => {
+            this.temNameList = res.data.map(({ temName, id }) => {
               return {
                 label: temName,
                 val: id,

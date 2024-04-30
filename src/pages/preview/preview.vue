@@ -20,7 +20,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { transStrFnToFn, transObjToStr } from '@/utils/util.js'
+import { transStrFnToFn } from '@/utils/util.js'
 import previewContent from './component/previewContent.vue'
 import { createDesigner } from '@/designer.js'
 export default {

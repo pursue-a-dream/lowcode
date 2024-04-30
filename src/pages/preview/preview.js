@@ -4,9 +4,6 @@ export default {
   addTem(_, data) {
     return HTTP.post(`${BASE_URL}/template/add`, data)
   },
-  getTem(_, projectId) {
-    return HTTP.get(`${BASE_URL}/template?projectId=${projectId}`)
-  },
   updateTem(_, data) {
     return HTTP.post(`${BASE_URL}/template/update`, data)
   },

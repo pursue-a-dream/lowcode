@@ -25,7 +25,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { transStrFnToFn, transObjToStr } from '@/utils/util.js'
+import { transStrFnToFn } from '@/utils/util.js'
 export default {
   props: {
     designer: { type: Object, default: () => {} },
@@ -84,7 +84,7 @@ export default {
     addTemFormConfirm() {
       const params = {
         ...this.addTemFormData,
-        temType: 'normal',
+        temType: 'project',
         projectId: this.$route.query.editID,
         temContent: {
           widgetList: [],
@@ -139,10 +139,10 @@ export default {
 
       const res = await this.updateTem({
         id,
-        temContent: transObjToStr({
+        temContent: {
           layers: this.designer.layers,
           widgetList: this.designer.widgetList,
-        }),
+        },
       })
       if (res.code === 1 && msg) {
         this.$message.success(this.activeTag + '页面已保存')

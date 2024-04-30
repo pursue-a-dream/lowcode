@@ -38,8 +38,8 @@ dependencies:
     specifier: ^2.0.5
     version: 2.0.5
   hui:
-    specifier: ^2.28.0
-    version: 2.28.0
+    specifier: 2.32.0
+    version: 2.32.0(vue-template-compiler@2.6.11)(vue@2.7.0)
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(typescript@5.4.5)(vue@2.7.0)
@@ -5677,7 +5677,6 @@ packages:
 
   /de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
-    dev: true
 
   /deap@1.0.1:
     resolution: {integrity: sha512-k75KYNZMvwAwes2xIPry/QTffXIchjD8QfABvvfTr80P85jv5ZcKqcoDo+vMe71nNnVnXYe8MA28weyqcf/DKw==}
@@ -8023,7 +8022,6 @@ packages:
   /he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
-    dev: true
 
   /hex-color-regex@1.1.0:
     resolution: {integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==}
@@ -8240,8 +8238,11 @@ packages:
   /https-browserify@1.0.0:
     resolution: {integrity: sha512-J+FkSdyD+0mA0N+81tMotaRMfSL9SGi+xpD3T6YApKsc3bGSXJlfXri3VyFOeYkfLRQisDk1W+jIFFKBeUBbBg==}
 
-  /hui@2.28.0:
-    resolution: {integrity: sha1-Uq54qjhJm6ti1aRSQCj2+m+vQAE=}
+  /hui@2.32.0(vue-template-compiler@2.6.11)(vue@2.7.0):
+    resolution: {integrity: sha1-ukrN50lJzftvv94v3A5deUmxDLg=}
+    peerDependencies:
+      vue: ^2.6.14
+      vue-template-compiler: ^2.6.14
     dependencies:
       '@soda/get-current-script': 1.0.2
       async-validator: 1.6.9
@@ -8250,6 +8251,8 @@ packages:
       global: 4.4.0
       resize-observer-polyfill: 1.5.1
       throttle-debounce: 1.1.0
+      vue: 2.7.0
+      vue-template-compiler: 2.6.11
     dev: false
 
   /human-signals@1.1.1:
@@ -14116,7 +14119,6 @@ packages:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
-    dev: true
 
   /vue-template-es2015-compiler@1.9.1:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}

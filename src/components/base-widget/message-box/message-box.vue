@@ -140,7 +140,7 @@ const sizeMap = {
 }
 
 export default {
-  name: 'message-box-widget',
+  name: 'MessageBoxWidget',
   components: {
     ElInput,
     ElButton,

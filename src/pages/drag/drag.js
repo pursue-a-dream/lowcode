@@ -5,7 +5,7 @@ export default {
     return HTTP.post(`${BASE_URL}/template/add`, data)
   },
   getTem(_, projectId) {
-    return HTTP.get(`${BASE_URL}/template?projectId=${projectId}`)
+    return HTTP.get(`${BASE_URL}/template/project?projectId=${projectId}`)
   },
   updateTem(_, data) {
     return HTTP.post(`${BASE_URL}/template/update`, data)
@@ -15,6 +15,9 @@ export default {
   },
   getCommonTem(_, type) {
     return HTTP.get(`${BASE_URL}/template/${type}`)
+  },
+  getPersonalAndGlobalTem(_) {
+    return HTTP.get(`${BASE_URL}/template/personalAndGlobalTem`)
   },
   addCommonTem(_, data) {
     return HTTP.post(`${BASE_URL}/template/addCommonTem`, data)

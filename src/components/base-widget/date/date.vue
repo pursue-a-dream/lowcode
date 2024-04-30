@@ -26,8 +26,8 @@
 <script>
 import FormItemWrapper from '../form-item-wrapper'
 export default {
+  name: 'DateWidget',
   components: { FormItemWrapper },
-  name: 'date-widget',
   props: {
     widget: Object,
     parentWidget: Object,
@@ -118,6 +118,7 @@ export default {
       deep: true,
     },
   },
+  mounted() {},
 
   methods: {
     timePickerBlur(prop) {
@@ -133,7 +134,6 @@ export default {
       // })
     },
   },
-  mounted() {},
 }
 </script>
 
