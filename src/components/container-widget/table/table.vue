@@ -43,14 +43,14 @@
             <template slot-scope="scope">
               <component
                 :is="subWidget.type + '-widget'"
-                :key="subWidget.id + scope?.row.id"
+                :key="subWidget.id + scope.row.id"
                 :widget="subWidget"
                 :designer="designer"
                 :parent-list="widget.widgetList"
                 :index-of-parent-list="swIdx"
                 :parent-widget="widget"
                 :design-state="true"
-                :row="scope?.row"
+                :row="scope.row"
                 @selectRow="
                   row => {
                     curRow = row

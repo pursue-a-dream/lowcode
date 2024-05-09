@@ -16,11 +16,7 @@
       @tab-click="handleClick"
     >
       <template v-for="(subWidget, swIdx) in widget.widgetList">
-        <el-collapse-item
-          :key="subWidget.id"
-          v-bind="subWidget.options"
-          :label="subWidget.options?.paneLabel"
-        >
+        <el-collapse-item :key="subWidget.id" v-bind="subWidget.options" :label="subWidget.options.paneLabel">
           <component
             :is="subWidget.type + '-widget'"
             :key="subWidget.id"

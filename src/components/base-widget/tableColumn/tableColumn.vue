@@ -38,7 +38,7 @@
         </template>
       </draggable>
       <div v-if="widget.options.showType === 'time'" class="tableCellContent">
-        {{ timeToString(row[widget.options.prop])?.localeString }}
+        {{ timeToString(row[widget.options.prop]).localeString }}
       </div>
       <div v-if="widget.options.showType === 'statusMap'" class="tableCellContent">
         <span

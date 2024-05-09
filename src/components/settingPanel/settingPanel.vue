@@ -23,7 +23,7 @@
             <el-collapse v-model="widgetActiveCollapseNames" class="setting-collapse">
               <el-collapse-item name="1" title="基本属性">
                 <template v-for="(editorName, propName) in widgetOption">
-                  <template v-if="curWidgetFormItemArrMap[propName]?.isBaseProp">
+                  <template v-if="curWidgetFormItemArrMap[propName].isBaseProp">
                     <prop-form-item
                       v-show="
                         curWidgetFormItemArrMap[propName].show
@@ -42,10 +42,10 @@
               </el-collapse-item>
               <el-collapse-item v-if="hasAdvancedProperties()" name="3" title="高级属性">
                 <template v-for="(editorName, propName) in widgetOption">
-                  <template v-if="!curWidgetFormItemArrMap[propName]?.isBaseProp">
+                  <template v-if="!curWidgetFormItemArrMap[propName].isBaseProp">
                     <prop-form-item
                       v-show="
-                        curWidgetFormItemArrMap[propName]?.show
+                        curWidgetFormItemArrMap[propName].show
                           ? curWidgetFormItemArrMap[propName].show(widgetOption, selectedWidget)
                           : true
                       "

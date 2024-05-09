@@ -14,7 +14,7 @@
           :key="subWidget.id"
           style="min-height: 200px"
           v-bind="subWidget.options"
-          :label="subWidget.options?.paneLabel"
+          :label="subWidget.options.paneLabel"
         >
           <component
             :is="subWidget.type + '-widget'"
