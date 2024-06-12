@@ -13,6 +13,8 @@ export const widgetConfig = {
     fieldName: '',
     isRequired: false,
     showType: 'checkbox',
+    min: 1,
+    max: 4,
     checkboxArr: [
       {
         val: 1,
@@ -28,6 +30,14 @@ export const widgetConfig = {
 }
 // 配置组件属性面板的fromItem
 export const widgetPropsFromItemArr = [
+  {
+    min: '可勾选最小数量',
+    isBaseProp: true,
+  },
+  {
+    max: '可勾选最大数量',
+    isBaseProp: true,
+  },
   {
     showType: '展示类型',
     isBaseProp: true,

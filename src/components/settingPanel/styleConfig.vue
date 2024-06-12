@@ -19,7 +19,7 @@
           ><span slot="suffix">px</span>
         </el-input>
         <div class="d-flex space-between">
-          <el-input class="asideInput" v-model="styleConfig.margin.left" placeholder="请输入"></el-input>
+          <el-input v-model="styleConfig.margin.left" class="asideInput" placeholder="请输入"></el-input>
           <div class="paddingContent">
             <el-input v-model="styleConfig.padding.top" placeholder="请输入"
               ><span slot="suffix">px</span></el-input
@@ -32,7 +32,7 @@
               ><span slot="suffix">px</span></el-input
             >
           </div>
-          <el-input class="asideInput" v-model="styleConfig.margin.right" placeholder="请输入"></el-input>
+          <el-input v-model="styleConfig.margin.right" class="asideInput" placeholder="请输入"></el-input>
         </div>
         <el-input v-model="styleConfig.margin.bottom" placeholder="请输入"
           ><span slot="suffix">px</span></el-input
@@ -50,7 +50,7 @@
         </el-form-item>
         <el-form-item label="字重">
           <el-select v-model="styleConfig.font.weight" placeholder="请选择">
-            <el-option v-for="item in fontWeightArr" :label="item" :value="item" :key="item"></el-option>
+            <el-option v-for="item in fontWeightArr" :key="item" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="行高">
@@ -65,6 +65,12 @@ export default {
   props: {
     styleConfig: Object,
     selectedWidget: Object,
+  },
+  data() {
+    return {
+      activeNames: ['1', '2'],
+      fontWeightArr: [200, 300, 400, 500, 600, 800, 1000],
+    }
   },
   watch: {
     styleConfig: {
@@ -92,12 +98,6 @@ export default {
         }
       },
     },
-  },
-  data() {
-    return {
-      activeNames: ['1', '2'],
-      fontWeightArr: [200, 300, 400, 500, 600, 800, 1000],
-    }
   },
 }
 </script>

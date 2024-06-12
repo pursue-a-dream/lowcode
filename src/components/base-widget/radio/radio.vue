@@ -11,7 +11,7 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
     :form-data="formData"
-    :rules="[]"
+    :rules="[{ required: widget.options.isRequired, message: '请选择' }]"
   >
     <el-radio-group v-model="radioVal">
       <template v-if="widget.options.showType === 'radio'">
@@ -74,7 +74,9 @@ export default {
   computed: {
     radioVal: {
       get() {
-        return this.formData ? this.formData[this.widget.options.fieldName] : this.widget.value
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
       },
       set(val) {
         this.widget.value = val

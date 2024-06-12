@@ -13,13 +13,18 @@
     :form-data="formData"
     :rules="[
       {
-        required: widget.options.isRequired,
-        message: '请选择',
+        validator: (rule, value, callback) => {
+          if (widget.options.isRequired && value.length < 1) {
+            callback(new Error('至少需要选择一个选项'))
+          } else {
+            callback()
+          }
+        },
         trigger: 'change',
       },
     ]"
   >
-    <el-checkbox-group v-model="checkboxVal">
+    <el-checkbox-group v-model="checkboxVal" :min="widget.options.min * 1" :max="widget.options.max * 1">
       <template v-if="widget.options.showType === 'checkbox'">
         <el-checkbox
           v-for="item in widget.options.checkboxArr"
@@ -80,7 +85,9 @@ export default {
   computed: {
     checkboxVal: {
       get() {
-        return this.formData ? this.formData[this.widget.options.fieldName] : this.widget.value
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
       },
       set(val) {
         this.widget.value = val

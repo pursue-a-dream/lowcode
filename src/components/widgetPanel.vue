@@ -10,6 +10,7 @@
               tag="ul"
               :list="containers"
               :group="{ name: 'dragGroup', pull: 'clone', put: false }"
+              :clone="handleContainerWidgetClone"
               ghost-class="ghost"
               :sort="false"
               :move="checkContainerMove"
@@ -38,6 +39,7 @@
               ghost-class="ghost"
               :sort="false"
               :move="checkContainerMove"
+              :clone="handleFieldWidgetClone"
               @end="onContainerDragEnd"
             >
               <li
@@ -65,6 +67,7 @@
           :group="{ name: 'dragGroup', pull: 'clone', put: false }"
           ghost-class="ghost"
           :sort="false"
+          :clone="handleTemClone"
           @end="onContainerDragEnd"
         >
           <el-card
@@ -103,7 +106,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { containers, basicFields } from '@/config/widgetsConfig'
 import templateArr from '@/config/temJson/index.js'
 import { transObjToStr, transStrFnToFn } from '@/utils/util.js'
@@ -197,6 +200,9 @@ export default {
   mounted() {
     this.getCommonTemList()
   },
+  computed: {
+    ...mapState(['userInfo']),
+  },
   methods: {
     ...mapActions('drag', ['getPersonalAndGlobalTem', 'addCommonTem', 'updateCommonTem']),
     handleClick(tab, event) {},
@@ -206,7 +212,7 @@ export default {
     handleFieldWidgetClone(origin) {
       return this.designer.copyNewFieldWidget(origin)
     },
-    copyTemWidget(origin) {
+    handleTemClone(origin) {
       return this.designer.copyTemWidget(origin)
     },
     checkContainerMove(val) {},
@@ -218,12 +224,16 @@ export default {
             this.commonTemList = res.data.map(({ temContent, temName }) => {
               return { ...temContent, temName }
             })
-            this.temNameList = res.data.map(({ temName, id }) => {
-              return {
-                label: temName,
-                val: id,
-              }
-            })
+            this.temNameList = res.data
+              .filter(item => {
+                return item.createAuthor === this.userInfo.userNameCn
+              })
+              .map(({ temName, id }) => {
+                return {
+                  label: temName,
+                  val: id,
+                }
+              })
           }
         })
         .catch(() => {})

@@ -8,14 +8,14 @@
     >
       <i class="h-icon-angle_left" title="选中父组件" @click.stop="selectParentWidget(widget)"></i>
       <i
-        class="h-icon-angle_up"
         v-if="!!parentList && parentList.length > 1"
+        class="h-icon-angle_up"
         title="上移组件"
         @click.stop="moveUpWidget()"
       ></i>
       <i
-        class="h-icon-angle_down"
         v-if="!!parentList && parentList.length > 1"
+        class="h-icon-angle_down"
         title="下移组件"
         @click.stop="moveDownWidget()"
       ></i>
@@ -52,8 +52,8 @@
         @click.stop="appendRowItem(widget)"
       ></i>
       <i
-        class="h-icon-copy"
         v-if="widget.type === 'grid' || widget.type === 'table'"
+        class="h-icon-copy"
         title="复制组件"
         @click.stop="cloneContainer(widget)"
       ></i>
@@ -75,7 +75,7 @@
 import containerMixin from '@/components/container-widget/containerMixin'
 
 export default {
-  name: 'container-wrapper',
+  name: 'ContainerWrapper',
   mixins: [containerMixin],
   props: {
     widget: Object,
@@ -97,6 +97,7 @@ $--color-primary: #409eff;
 .container-wrapper {
   position: relative;
   margin-bottom: 5px;
+  // width: fit-content;
 
   .container-action {
     position: absolute;
@@ -136,4 +137,3 @@ $--color-primary: #409eff;
   }
 }
 </style>
-

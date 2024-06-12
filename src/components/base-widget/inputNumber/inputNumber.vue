@@ -74,7 +74,9 @@ export default {
   computed: {
     inputVal: {
       get() {
-        return this.formData ? this.formData[this.widget.options.fieldName] : this.widget.value
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
         // return this.widget.value
       },
       set(val) {

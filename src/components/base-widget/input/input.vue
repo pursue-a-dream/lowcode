@@ -19,15 +19,15 @@
       },
     ]"
   >
-    <el-input :style="widget.activeStyle" v-bind="widget.options" v-model="inputVal"></el-input>
+    <el-input v-model="inputVal" :style="widget.activeStyle" v-bind="widget.options"></el-input>
   </FormItemWrapper>
 </template>
 
 <script>
 import FormItemWrapper from '../form-item-wrapper'
 export default {
+  name: 'InputWidget',
   components: { FormItemWrapper },
-  name: 'input-widget',
   props: {
     widget: Object,
     parentWidget: Object,
@@ -57,7 +57,9 @@ export default {
   computed: {
     inputVal: {
       get() {
-        return this.formData ? this.formData[this.widget.options.fieldName] : this.widget.value
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
         // return this.widget.value
       },
       set(val) {
@@ -66,9 +68,9 @@ export default {
       },
     },
   },
+  mounted() {},
 
   methods: {},
-  mounted() {},
 }
 </script>
 

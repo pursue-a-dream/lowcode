@@ -12,7 +12,7 @@
       :move="checkContainerMove"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
-      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
+      :list="widget.widgetList"
       @update="onContainerDragUpdate"
       @click.native.stop="selectWidget(widget)"
     >
@@ -35,7 +35,7 @@
 <script>
 import containerMixin from '@/components/container-widget/containerMixin'
 export default {
-  name: 'common-container',
+  name: 'CommonContainer',
   mixins: [containerMixin],
   props: {
     widget: Object,

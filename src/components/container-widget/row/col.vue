@@ -14,7 +14,7 @@
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
       :move="checkContainerMove"
-      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
+      :list="widget.widgetList"
       @update="onContainerDragUpdate"
       @click.native.stop="selectWidget(widget)"
     >

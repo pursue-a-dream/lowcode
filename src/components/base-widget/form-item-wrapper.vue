@@ -6,8 +6,8 @@
   >
     <el-form-item
       v-if="hasFromParent"
-      :label="widget.options.label"
       v-show="!widget.options.hidden || designState === true"
+      :label="widget.options.label"
       :class="[selected && $route.path != '/preview' ? 'selected' : '', customClass]"
       :rules="rules"
       :prop="widget.options.fieldName"
@@ -17,8 +17,8 @@
     </el-form-item>
     <div
       v-if="!hasFromParent"
-      class="static-content-item"
       v-show="!widget.options.hidden || designState === true"
+      class="static-content-item"
       :style="{ display: displayStyle }"
       :class="[selected && $route.path != '/preview' ? 'selected' : '', customClass]"
       @click.stop="selectwidget(widget)"
@@ -26,24 +26,24 @@
       <slot></slot>
     </div>
     <template v-if="!!designer && $route.path != '/preview'">
-      <div class="widget-action" v-if="designer.selectedId === widget.id">
+      <div v-if="designer.selectedId === widget.id" class="widget-action">
         <i class="h-icon-angle_left" title="选中父组件" @click.stop="selectParentWidget(widget)"></i>
         <i
-          class="h-icon-angle_up"
           v-if="!!parentList && parentList.length > 1"
+          class="h-icon-angle_up"
           title="上移组件"
           @click.stop="moveUpWidget(widget)"
         ></i>
         <i
-          class="h-icon-angle_down"
           v-if="!!parentList && parentList.length > 1"
+          class="h-icon-angle_down"
           title="下移组件"
           @click.stop="moveDownWidget(widget)"
         ></i>
         <i class="h-icon-delete" title="移除组件" @click.stop="removewidgetWidget"></i>
       </div>
 
-      <div class="drag-handler background-opacity" v-if="designer.selectedId === widget.id">
+      <div v-if="designer.selectedId === widget.id" class="drag-handler background-opacity">
         <i class="h-icon-windows_maximum" title="拖拽手柄"></i>
         <!-- <i>{{ widget.name }}</i> -->
         <i v-if="widget.options.hidden === true" class="h-icon-password_unvisible"></i>
@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: 'form-item-wrapper',
+  name: 'FormItemWrapper',
   props: {
     widget: Object,
     designer: Object,

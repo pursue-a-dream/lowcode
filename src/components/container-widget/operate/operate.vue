@@ -12,7 +12,7 @@
       :class="[selected ? 'selected' : '']"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
-      @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
+      :list="widget.widgetList"
       @click.native.stop="selectWidget(widget)"
     >
       <template v-if="widget.widgetList && widget.widgetList.length > 0">

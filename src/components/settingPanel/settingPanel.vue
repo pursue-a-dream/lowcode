@@ -274,6 +274,7 @@ import { generateId } from '@/utils/util.js'
 import propFormItem from './propFormItem'
 import styleConfig from './styleConfig'
 import triggerEventEdit from './triggerEventEdit'
+import { deepClone } from '@/utils/util.js'
 export default {
   components: { propFormItem, styleConfig, triggerEventEdit },
   props: {
@@ -489,7 +490,7 @@ export default {
               action.paramsList = paramsList
             }
           })
-          this.selectedWidget.eventArr.push({ ...this.addActionForm, eventId: generateId() })
+          this.selectedWidget.eventArr.push({ ...deepClone(this.addActionForm), eventId: generateId() })
           this.addActionVisible = false
           this.addActionForm = {
             effectAciton: '',

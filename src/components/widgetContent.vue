@@ -8,7 +8,7 @@
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 300 }"
       handle=".drag-handler"
       :class="[layoutType + '-layout']"
-      @add="ev => designer.dealWidgetAdd(ev, designer.widgetList)"
+      :list="designer.widgetList"
     >
       <transition-group name="fade" tag="div" class="form-widget-list">
         <template v-for="(widget, index) in designer.widgetList">

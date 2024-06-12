@@ -22,7 +22,7 @@
         style="width: 100%; height: 100%"
         v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
         handle=".drag-handler"
-        @add="ev => designer.dealWidgetAdd(ev, widget.widgetList)"
+        :list="widget.widgetList"
       >
         <template v-for="(subWidget, swIdx) in widget.widgetList">
           <component

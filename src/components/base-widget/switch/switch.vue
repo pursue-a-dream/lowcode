@@ -1,5 +1,5 @@
 <template>
-  <BaseWrapper
+  <FormItemWrapper
     :designer="designer"
     :widget="widget"
     :design-state="designState"
@@ -10,24 +10,21 @@
     :sub-form-row-index="subFormRowIndex"
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
+    :form-data="formData"
   >
-    <el-switch
-      v-bind="widget.options"
-      :style="widget.activeStyle"
-      v-model="val"
-      @change="change"
-      :before-change="beforeChange"
-    >
+    <el-switch v-model="val" v-bind="widget.options" :style="widget.activeStyle">
+      <!--  :before-change="beforeChange"
+      @change="change" -->
       {{ widget.options.label }}</el-switch
-    ></BaseWrapper
-  >
+    >
+  </FormItemWrapper>
 </template>
 
 <script>
-import BaseWrapper from '../base-wrapper'
+import FormItemWrapper from '../form-item-wrapper'
 export default {
   name: 'SwitchWidget',
-  components: { BaseWrapper },
+  components: { FormItemWrapper },
   props: {
     widget: { type: Object, default: () => {} },
     parentWidget: { type: Object, default: () => {} },
@@ -55,25 +52,38 @@ export default {
       /* 子表单组件行Id，唯一id且不可变 */ type: String,
       default: '',
     },
+    formData: { type: Object, default: () => {} },
   },
   data() {
     return {
-      val: '',
       done: null,
     }
   },
-  watch: {
-    // 此处监听，处理form的被触发事件
-    'designer.triggerEventStatus': {
-      handler(newV, oldV) {
-        let switchChange = this.widget.id + 'switchChange'
-        if (newV[switchChange] != oldV[switchChange]) {
-          this.done && this.done()
-        }
+  computed: {
+    val: {
+      get() {
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
       },
-      deep: true,
+      set(val) {
+        this.widget.value = val
+        this.formData && (this.formData[this.widget.options.fieldName] = val)
+      },
     },
   },
+  // watch: {
+  //   // 此处监听，处理form的被触发事件
+  //   'designer.triggerEventStatus': {
+  //     handler(newV, oldV) {
+  //       let switchChange = this.widget.id + 'switchChange'
+  //       if (newV[switchChange] != oldV[switchChange]) {
+  //         this.done && this.done()
+  //       }
+  //     },
+  //     deep: true,
+  //   },
+  // },
   methods: {
     change() {
       console.log('change')

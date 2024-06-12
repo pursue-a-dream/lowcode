@@ -6,7 +6,14 @@
  * remark: 如果要分发VForm源码，需在本文件顶部保留此文件头信息！！
  */
 
-import { deepClone, generateId, getDefaultFormConfig, overwriteObj, getLastNumber } from '@/utils/util.js'
+import {
+  deepClone,
+  generateId,
+  getDefaultFormConfig,
+  overwriteObj,
+  getLastNumber,
+  transStrFnToFn,
+} from '@/utils/util.js'
 import { containers, basicFields, eventTriggeredWidget, defaultStyleConfig } from '@/config/widgetsConfig.js'
 
 export function createDesigner(vueInstance) {
@@ -621,10 +628,25 @@ export function createDesigner(vueInstance) {
     // 拖拽拷贝模板
     copyTemWidget(origin) {
       // 找到所有的ID 2、转成字符串 3、对所有ID进行全局替换
-      console.log('origin', origin)
-      !origin.id && (origin.id = origin.type + generateId())
-      Array.isArray(origin.layers) && (this.layers = [...this.layers, ...origin.layers])
-      return deepClone(origin.widgetList)
+      // !origin.id && (origin.id = origin.type + generateId())
+      // Array.isArray(origin.layers) && (this.layers = [...this.layers, ...origin.layers])
+      // return deepClone(origin.widgetList)
+      let widgetStr = JSON.stringify(origin)
+      let { widgetList, layers } = JSON.parse(widgetStr)
+      let newWidgetStr = widgetStr
+      // 深度递归遍历获取所有ID、替换所有ID
+      let idAndNewIdArr = this.deepRecursionAndGenerateNewId(widgetList)
+      let idAndNewIdArr2 = this.deepRecursionAndGenerateNewId(layers, true)
+      idAndNewIdArr.map(({ id, newId }) => {
+        newWidgetStr = newWidgetStr.replaceAll(id, newId)
+      })
+      idAndNewIdArr2.map(({ id, newId }) => {
+        newWidgetStr = newWidgetStr.replaceAll(id, newId)
+      })
+      // 将字符串函数转换为函数
+      // targetWidgetList.push(...transStrFnToFn([...JSON.parse(newWidgetStr).widgetList]))
+      this.layers.push(...transStrFnToFn([...JSON.parse(newWidgetStr).layers]))
+      return { ...JSON.parse(newWidgetStr), id: origin.type + generateId() }
     },
     // 拖拽拷贝新的组件
     copyNewFieldWidget(origin) {
@@ -708,7 +730,7 @@ export function createDesigner(vueInstance) {
       if (widgettype.value == 'tem' && widgetStr.value) {
         let { widgetList, layers } = JSON.parse(widgetStr.value)
         let newWidgetStr = widgetStr.value
-        // 深度地柜遍历获取所有ID、替换所有ID
+        // 深度递归遍历获取所有ID、替换所有ID
         let idAndNewIdArr = this.deepRecursionAndGenerateNewId(widgetList)
         let idAndNewIdArr2 = this.deepRecursionAndGenerateNewId(layers, true)
         idAndNewIdArr.map(({ id, newId }) => {
@@ -717,8 +739,9 @@ export function createDesigner(vueInstance) {
         idAndNewIdArr2.map(({ id, newId }) => {
           newWidgetStr = newWidgetStr.replaceAll(id, newId)
         })
-        targetWidgetList.push(...JSON.parse(newWidgetStr).widgetList)
-        this.layers.push(...JSON.parse(newWidgetStr).layers)
+        // 将字符串函数转换为函数
+        targetWidgetList.push(...transStrFnToFn([...JSON.parse(newWidgetStr).widgetList]))
+        this.layers.push(...transStrFnToFn([...JSON.parse(newWidgetStr).layers]))
         return
       }
 

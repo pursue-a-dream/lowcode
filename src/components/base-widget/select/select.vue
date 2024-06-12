@@ -14,8 +14,8 @@
     :rules="rules"
   >
     <el-select
-      v-model="selectVal"
       :key="selectKey"
+      v-model="selectVal"
       :style="widget.activeStyle"
       v-bind="widget.options"
       :clearable="widget.options.multipleClearable"
@@ -34,8 +34,8 @@
 <script>
 import FormItemWrapper from '../form-item-wrapper'
 export default {
+  name: 'SelectWidget',
   components: { FormItemWrapper },
-  name: 'select-widget',
   props: {
     widget: Object,
     parentWidget: Object,
@@ -70,7 +70,9 @@ export default {
   computed: {
     selectVal: {
       get() {
-        return this.formData ? this.formData[this.widget.options.fieldName] : this.widget.value
+        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
+          ? this.formData[this.widget.options.fieldName]
+          : this.widget.value
       },
       set(val) {
         this.widget.value = val
@@ -108,9 +110,9 @@ export default {
       deep: true,
     },
   },
+  mounted() {},
 
   methods: {},
-  mounted() {},
 }
 </script>
 
