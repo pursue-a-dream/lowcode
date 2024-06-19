@@ -242,11 +242,26 @@ export default {
       const { temType, temName, bgImg, neWTemName, newBgImg, id } = this.addTemFormData
 
       const formData = new FormData()
-      const commonTem = {
-        category: 'container',
-        type: 'commonTem',
-        layers: this.designer.layers,
-        widgetList: this.designer.widgetList,
+      // 添加判断，避免模板一直嵌套
+      let commonTem
+      if (
+        this.designer.widgetList &&
+        this.designer.widgetList.length == 1 &&
+        this.designer.widgetList[0].type == 'commonTem'
+      ) {
+        commonTem = {
+          category: 'container',
+          type: 'commonTem',
+          layers: this.designer.layers,
+          widgetList: this.designer.widgetList[0].widgetList,
+        }
+      } else {
+        commonTem = {
+          category: 'container',
+          type: 'commonTem',
+          layers: this.designer.layers,
+          widgetList: this.designer.widgetList,
+        }
       }
       if (temType === 0) {
         formData.append('files', bgImg[0].raw)

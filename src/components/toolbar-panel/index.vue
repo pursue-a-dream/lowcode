@@ -65,7 +65,6 @@ export default {
     },
     saveFile() {
       // console.log('this.designer', JSON.stringify(this.designer.layers))
-      // debugger
       generatePage(this.designer)
     },
   },

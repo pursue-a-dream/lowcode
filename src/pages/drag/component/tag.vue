@@ -25,7 +25,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { transStrFnToFn } from '@/utils/util.js'
+import { transStrFnToFn, mapObjFnToStr } from '@/utils/util.js'
 export default {
   props: {
     designer: { type: Object, default: () => {} },
@@ -108,16 +108,18 @@ export default {
     getTagList() {
       this.getTem(this.$route.query.editID).then(res => {
         if (res.code === 1) {
-          this.tagList = res.data
-          this.$emit('updateTagList', res.data)
-          if (!this.activeTag && res.data[0]) {
+          let data = transStrFnToFn(res.data)
+          this.tagList = data
+          this.$emit('updateTagList', data)
+          if (!this.activeTag && data[0]) {
             const {
               temName,
               temContent: { widgetList, layers },
-            } = res.data[0]
+            } = data[0]
             this.activeTag = temName
             this.designer.layers = transStrFnToFn(layers)
             this.designer.widgetList = transStrFnToFn(widgetList)
+            console.log(' this.designer.widgetList', this.designer.widgetList)
           }
         }
       })
@@ -133,16 +135,16 @@ export default {
       this.designer.widgetList = widgetList
     },
     async saveCurentPageConfig(msg) {
+      console.log('msg', msg)
       const { id } = this.tagList.find(item => {
         return item.temName === this.activeTag
       })
-
       const res = await this.updateTem({
         id,
-        temContent: {
+        temContent: mapObjFnToStr({
           layers: this.designer.layers,
           widgetList: this.designer.widgetList,
-        },
+        }),
       })
       if (res.code === 1 && msg) {
         this.$message.success(this.activeTag + '页面已保存')

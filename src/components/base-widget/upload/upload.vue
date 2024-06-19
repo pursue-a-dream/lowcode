@@ -12,25 +12,30 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
     :form-data="formData"
-    :rules="[]"
+    :rules="[
+      {
+        required: widget.options.isRequired,
+        validator: validator,
+        message: '请选择上传文件',
+      },
+    ]"
   >
     <el-upload
       action
       v-bind="widget.options"
       :on-remove="
         (file, fileList) => {
-          formData && (formData[widget.options.fieldName] = fileList)
+          widget.value = fileList
         }
       "
       :on-change="
         (file, fileList) => {
-          const newFileList = filterFileList(fileList, widget.options)
-          formData && (formData[widget.options.fieldName] = newFileList)
+          widget.value = filterFileList(fileList, widget.options)
         }
       "
       :disabled="fileList.length >= widget.options.limit"
       :http-request="() => {}"
-      :file-list="fileList"
+      :file-list="widget.value"
     >
       <div v-show="widget.options.drag" class="dragContent">
         <i class="h-icon-upload" />
@@ -82,9 +87,28 @@ export default {
     formData: { type: Object, default: () => {} },
   },
   data() {
+    const validate = (rule, value, cb) => {
+      if (Array.isArray(value) && value.length == 0 && this.widget.options.isRequired) {
+        cb(new Error('请选择上传文件'))
+      } else {
+        cb()
+      }
+    }
     return {
       fileList: [],
+      validator: validate,
     }
+  },
+  watch: {
+    // formData: {
+    //   handler(val) {
+    //     console.log('val', JSON.stringify(val))
+    //     if (!this.formData[this.widget.options.fieldName]) {
+    //       console.log('dasdasd')
+    //       this.fileList = []
+    //     }
+    //   },
+    // },
   },
   methods: {
     filterFileList(fileList, options) {
@@ -96,12 +120,12 @@ export default {
       })
       for (let index = 0; index < fileList.length; index++) {
         const file = fileList[index]
-        if (file.size > 20 * 1024 * 1024) {
-          Message.error('文件过大')
-          return fileArr
-        }
+        // if (file.size > 20 * 1024 * 1024) {
+        //   Message.error('文件过大')
+        //   return fileArr
+        // }
         let type = file.name.substring(file.name.lastIndexOf('.') + 1)
-        if (accept.indexOf(type) > -1) {
+        if (accept.indexOf(type) > -1 || accept == '*') {
           fileArr.push(file)
         } else {
           Message.error('文件格式错误')

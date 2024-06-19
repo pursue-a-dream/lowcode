@@ -7,7 +7,6 @@ export const widgetConfig = {
   activeStyle: {},
   value: '',
   options: {
-    name: 'switch',
     label: 'switch',
     // width: 52,
     disabled: false,

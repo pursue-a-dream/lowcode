@@ -95,19 +95,27 @@ export default {
     'widget.widgetList': {
       handler(newV) {
         let newFormData = {}
-        newV &&
-          newV.map(item => {
-            if (item.formItemFlag) {
-              newFormData[item.options.fieldName] = item.value
-            }
-          })
+        // 需进行深度地柜遍历，得到所有的formData
+        newFormData = this.mapWidgetListFormItem(newV)
         this.widget.widgetProvideData.formData = { value: 'formData', label: '表单数据', data: newFormData }
         this.formData = newFormData
       },
       deep: true,
+      immediate: true,
     },
   },
   methods: {
+    mapWidgetListFormItem(widgetList, newFormData = {}) {
+      widgetList.map(item => {
+        if (item.formItemFlag) {
+          newFormData[item.options.fieldName] = item.value
+        }
+        if (Array.isArray(item.widgetList) && item.widgetList.length > 0) {
+          this.mapWidgetListFormItem(item.widgetList, newFormData)
+        }
+      })
+      return newFormData
+    },
     resetForm() {
       this.widget.widgetList.map(item => {
         Array.isArray(item.value) ? (item.value = []) : (item.value = '')
@@ -139,6 +147,6 @@ export default {
   }
 }
 .selected {
-  outline: 2px solid #409eff !important;
+  outline: 2px solid #409eff;
 }
 </style>

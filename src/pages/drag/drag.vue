@@ -140,17 +140,17 @@ export default {
     overflow-y: hidden;
     padding: 0 8px !important;
   }
-}
-.el-dialog__wrapper,
-.el-drawer__wrapper,
-.v-modal {
-  position: fixed;
-  top: 100px;
-  left: 275px;
-  right: 310px;
-  width: auto;
-  height: auto;
-  bottom: 20px;
-  background: rgba(77, 77, 77, 0.4);
+  v-deep.el-dialog__wrapper,
+  .el-drawer__wrapper,
+  .v-modal {
+    position: fixed;
+    top: 100px;
+    left: 275px;
+    right: 310px;
+    width: auto;
+    height: auto;
+    bottom: 20px;
+    background: rgba(77, 77, 77, 0.4);
+  }
 }
 </style>

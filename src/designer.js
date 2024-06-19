@@ -112,7 +112,8 @@ export function createDesigner(vueInstance) {
     },
 
     setSelected(selected) {
-      if (!selected) {
+      // 判断selected的元素是否为自定义模板，是的话退回
+      if (!selected || selected.type == 'commonTem') {
         this.clearSelected()
         return
       }
@@ -646,7 +647,7 @@ export function createDesigner(vueInstance) {
       // 将字符串函数转换为函数
       // targetWidgetList.push(...transStrFnToFn([...JSON.parse(newWidgetStr).widgetList]))
       this.layers.push(...transStrFnToFn([...JSON.parse(newWidgetStr).layers]))
-      return { ...JSON.parse(newWidgetStr), id: origin.type + generateId() }
+      return transStrFnToFn({ ...JSON.parse(newWidgetStr), id: origin.type + generateId() })
     },
     // 拖拽拷贝新的组件
     copyNewFieldWidget(origin) {

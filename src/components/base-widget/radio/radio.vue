@@ -13,7 +13,7 @@
     :form-data="formData"
     :rules="[{ required: widget.options.isRequired, message: '请选择' }]"
   >
-    <el-radio-group v-model="radioVal">
+    <el-radio-group v-model="widget.value">
       <template v-if="widget.options.showType === 'radio'">
         <el-radio
           v-for="item in widget.options.radioArr"
@@ -70,19 +70,6 @@ export default {
   },
   data() {
     return {}
-  },
-  computed: {
-    radioVal: {
-      get() {
-        return Object(this.formData).hasOwnProperty(this.widget.options.fieldName)
-          ? this.formData[this.widget.options.fieldName]
-          : this.widget.value
-      },
-      set(val) {
-        this.widget.value = val
-        this.formData && (this.formData[this.widget.options.fieldName] = val)
-      },
-    },
   },
 }
 </script>

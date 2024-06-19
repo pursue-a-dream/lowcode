@@ -20,6 +20,7 @@
             callback()
           }
         },
+        required: widget.options.isRequired,
         trigger: 'change',
       },
     ]"

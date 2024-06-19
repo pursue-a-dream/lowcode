@@ -111,7 +111,7 @@ export default {
   outline: 1px dashed #336699;
 
   .selected {
-    outline: 2px solid #409eff !important;
+    outline: 2px solid #409eff;
   }
 }
 </style>

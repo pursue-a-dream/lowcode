@@ -46,12 +46,13 @@ export default {
     getTagList() {
       this.getTem(this.$route.query.projectId).then(res => {
         if (res.code === 1) {
-          this.tagList = res.data
-          if (!this.activeTag && res.data[0]) {
+          let data = transStrFnToFn(res.data)
+          this.tagList = data
+          if (!this.activeTag && data[0]) {
             const {
               temName,
               temContent: { widgetList, layers },
-            } = res.data[0]
+            } = data[0]
             this.activeTag = temName
             this.designer.layers = transStrFnToFn(layers)
             this.designer.widgetList = transStrFnToFn(widgetList)
@@ -71,6 +72,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .previewContent {
+  ::v-deep * {
+    outline: none;
+  }
+  .tabPaneUnSelected {
+    border: none;
+  }
+  .colContent {
+    border: none;
+  }
+  ::v-deep .selected {
+    outline: none !important;
+  }
   .h-layout-aside {
     background-color: #252525 !important;
     .el-menu {

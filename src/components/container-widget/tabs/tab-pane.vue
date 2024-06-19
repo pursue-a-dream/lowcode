@@ -6,11 +6,10 @@
     :parent-widget="parentWidget"
     :parent-list="parentList"
     :index-of-parent-list="indexOfParentList"
-    style="height: 200px"
   >
     <draggable
       :class="[tabPaneSelected ? 'tabPaneSelected' : 'tabPaneUnSelected']"
-      style="padding: 5px; min-height: 50px; height: 100%"
+      style="padding: 5px; min-height: 200px; height: 100%"
       v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 200 }"
       handle=".drag-handler"
       :move="checkContainerMove"

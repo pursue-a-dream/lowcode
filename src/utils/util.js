@@ -40,7 +40,12 @@ export const deepClone = function (obj, cache = new WeakMap()) {
   if (obj instanceof RegExp) return new RegExp(obj)
 
   if (cache.has(obj)) return cache.get(obj) // 如果出现循环引用，则返回缓存的对象，防止递归进入死循环
-  let cloneObj = new obj.constructor() // 使用对象所属的构造函数创建一个新对象
+  let cloneObj // 使用对象所属的构造函数创建一个新对象
+  try {
+    cloneObj = new obj.constructor()
+  } catch (error) {
+    cloneObj = Array.isArray(cloneObj) ? [] : {}
+  }
   cache.set(obj, cloneObj) // 缓存对象，用于循环引用的情况
 
   for (let key in obj) {
@@ -396,6 +401,9 @@ export const transObjToStr = function (obj, cache = new WeakMap()) {
   }
   mapObj(newObj)
   return JSON.stringify(newObj)
+}
+export const mapObjFnToStr = function (obj) {
+  return JSON.parse(transObjToStr(obj))
 }
 // 将函数字符串转换成函数
 export const transStrFnToFn = function (obj) {
